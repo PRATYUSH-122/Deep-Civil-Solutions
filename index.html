@@ -17,65 +17,79 @@
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: #f4f4f4; color: #222; line-height: 1.6; }
 
-        /* Navigation & Button Logo */
+        /* Navigation Fix for Mobile */
         header {
-            background: var(--charcoal); padding: 15px 8%;
-            display: flex; justify-content: space-between; align-items: center;
+            background: var(--charcoal); padding: 15px 5%;
+            display: flex; flex-direction: column; align-items: center;
             position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--safety-orange);
+            gap: 10px;
         }
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 15px 8%; }
+        }
+
         .company-logo-btn {
             background: transparent; color: var(--safety-orange); border: 2px solid var(--safety-orange);
-            padding: 10px 20px; font-size: 1.4rem; font-weight: 700; text-decoration: none;
-            transition: 0.3s; border-radius: 4px; box-shadow: inset 0 0 0 0 var(--safety-orange);
+            padding: 8px 15px; font-size: 1.1rem; font-weight: 700; text-decoration: none;
+            transition: 0.3s; border-radius: 4px; text-align: center;
         }
-        .company-logo-btn:hover {
-            background: var(--safety-orange); color: var(--charcoal); box-shadow: 0 0 15px var(--safety-orange);
-        }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
-        nav ul li a:hover { color: var(--safety-orange); }
 
-        /* Hero */
-        .hero {
-            height: 60vh; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-            url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1200');
-            background-size: cover; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; color: white; text-align: center;
+        nav ul { display: flex; list-style: none; gap: 12px; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; }
+
+        @media (min-width: 768px) {
+            nav ul li a { font-size: 0.85rem; }
+            .company-logo-btn { font-size: 1.4rem; }
         }
-        .hero h1 { font-size: 3.5rem; }
+
+        /* Hero Mobile Fix */
+        .hero {
+            min-height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+            url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=1200');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            color: white; text-align: center; padding: 40px 20px;
+        }
+        .hero h1 { font-size: 1.8rem; line-height: 1.2; }
         .hero h1 span { color: var(--safety-orange); }
 
-        /* About Section */
-        .section { padding: 80px 10%; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .about-card { background: white; padding: 30px; border-top: 5px solid var(--safety-orange); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero { height: 60vh; }
+        }
 
-        /* ALL CLIENTS LIST (No Page Number Brackets) */
-        .clients-section { background: var(--charcoal); color: white; padding: 80px 10%; }
+        /* Sections */
+        .section { padding: 50px 8%; }
+        .about-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .about-card { background: white; padding: 25px; border-top: 5px solid var(--safety-orange); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        @media (min-width: 768px) {
+            .about-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* CLIENTS LIST - Full 29 Clients */
+        .clients-section { background: var(--charcoal); color: white; padding: 60px 8%; }
         .client-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 12px; margin-top: 30px;
+            gap: 10px; margin-top: 30px;
         }
         .client-name {
             background: #262626; padding: 12px 18px; border-left: 4px solid var(--safety-orange);
-            font-size: 0.9rem; transition: 0.3s;
+            font-size: 0.85rem; transition: 0.3s;
         }
         .client-name:hover { background: var(--safety-orange); color: black; font-weight: bold; }
 
-        /* Contact Details */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 30px; }
-        .info-card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .info-card h3 { color: var(--safety-orange); margin-bottom: 20px; font-size: 1.8rem; }
-        .contact-detail { margin-bottom: 15px; font-size: 1.1rem; }
-        .contact-detail b { color: var(--safety-orange); display: block; text-transform: uppercase; font-size: 0.8rem; }
+        /* Contact */
+        .contact-container { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .info-card { background: white; padding: 30px; border-radius: 8px; color: #222; }
+        .contact-detail b { color: var(--safety-orange); display: block; text-transform: uppercase; font-size: 0.75rem; margin-top: 10px;}
+
+        @media (min-width: 768px) {
+            .contact-container { grid-template-columns: 1fr 1fr; }
+        }
 
         footer { background: #000; color: #555; text-align: center; padding: 30px; font-size: 0.8rem; }
-
-        @media (max-width: 768px) {
-            .about-grid, .contact-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2rem; }
-        }
     </style>
 </head>
 <body>
@@ -85,7 +99,6 @@
         <nav>
             <ul>
                 <li><a href="#about">ABOUT</a></li>
-                <li><a href="#services">SERVICES</a></li>
                 <li><a href="#clients">CLIENTS</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
@@ -102,17 +115,17 @@
         <div class="about-grid">
             <div class="about-card">
                 <h3>Our Mission</h3>
-                <p>2015 se Deep Civil Solutions civil engineering aur infrastructure development mein ek vishwasniya naam hai. Hum qualified experts ke saath quality kaam delivery par focus karte hain.</p>
+                <p>2015 se Deep Civil Solutions civil engineering aur infrastructure development mein ek vishwasniya naam hai.</p>
             </div>
             <div class="about-card">
                 <h3>Our Expertise</h3>
-                <p>Hum surface preparation ko sabse zyada mahatva dete hain taaki koi bhi coating ya flooring lambe samay tak chale. "Attention to Detail" hamara mantra hai.</p>
+                <p>Hum surface preparation aur attention to detail ko sabse zyada mahatva dete hain.</p>
             </div>
         </div>
     </section>
 
     <section id="clients" class="clients-section">
-        <h2 style="color: var(--safety-orange); border-bottom: 2px solid #444; padding-bottom: 10px;">Our Prestigious Clients</h2>
+        <h2 style="color: var(--safety-orange); border-bottom: 2px solid #444; padding-bottom: 10px; text-align: center;">Our Prestigious Clients</h2>
         <div class="client-grid">
             <div class="client-name">Balaji Wafers Private Limited - Rajkot</div>
             <div class="client-name">Balaji Wafers Private Limited - Valsad</div>
@@ -147,22 +160,20 @@
     </section>
 
     <section id="contact" class="section">
-        <h2 style="text-align: center; margin-bottom: 50px;">Get In Touch</h2>
+        <h2 style="text-align: center; margin-bottom: 40px;">Get In Touch</h2>
         <div class="contact-container">
             <div class="info-card">
                 <h3>Contact Details</h3>
-                <div class="contact-detail"><b>📍 Registered Office</b>Deep Civil Solutions, Rajkot, Gujarat (Operating PAN India)</div>
+                <div class="contact-detail"><b>📍 Registered Office</b>Rajkot, Gujarat (Operating PAN India)</div>
                 <div class="contact-detail"><b>📞 Call Us</b>+91 98244 35362 | +91 99241 29182</div>
                 <div class="contact-detail"><b>📧 Email Us</b>abhishek.teamdcs@gmail.com</div>
-                <div class="contact-detail"><b>🤝 Authorized Partners</b>BASF (We Create Chemistry) & SIKA (Building Trust)</div>
+                <div class="contact-detail"><b>🤝 Authorized Partners</b>BASF & SIKA</div>
             </div>
             <div class="info-card">
-                <h3>Enquire Now</h3>
                 <form>
                     <input type="text" placeholder="Name" style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;">
-                    <input type="email" placeholder="Email" style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;">
                     <textarea placeholder="Your Requirement" rows="4" style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ddd;"></textarea>
-                    <button type="submit" style="background:var(--safety-orange); color:black; padding:12px 30px; border:none; font-weight:bold; cursor:pointer; width:100%;">SEND INQUIRY</button>
+                    <button type="submit" style="background:var(--safety-orange); color:black; padding:12px; border:none; font-weight:bold; cursor:pointer; width:100%;">SEND INQUIRY</button>
                 </form>
             </div>
         </div>
