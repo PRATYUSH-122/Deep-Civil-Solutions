@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Concrete Cutting | Deep Civil Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --safety-orange: #ff8800;
+            --charcoal: #1a1a1a;
+            --white: #ffffff;
+            --light-bg: #f4f4f4;
+            --deep-blue: #1e3a8a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        body { background: var(--light-bg); color: #333; line-height: 1.6; }
+
+        /* --- Header & Hero --- */
+        header {
+            background: var(--charcoal); padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 4px solid var(--safety-orange);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
+        .back-btn:hover { background: var(--safety-orange); color: #000; border-color: var(--safety-orange); }
+
+        .hero-sub {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('concrete_cutting_hero.jpg'); 
+            background-size: cover; background-position: center;
+            height: 300px; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
+        }
+        .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
+        .hero-sub span { color: var(--safety-orange); }
+
+        /* --- Content Section --- */
+        .detail-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
+        
+        .description-box { 
+            background: white; padding: 40px; border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
+            margin-bottom: 50px;
+        }
+        .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
+        .description-box p { font-size: 1.1rem; color: #444; text-align: justify; margin-bottom: 15px; }
+
+        /* --- Grid Layouts --- */
+        .section-title { text-align: center; margin-bottom: 40px; margin-top: 40px; }
+        .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title h2::after { content: ''; width: 60px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+        
+        .info-card {
+            background: var(--charcoal); color: white; padding: 25px;
+            border-radius: 4px; transition: 0.4s ease; position: relative;
+            overflow: hidden; border-bottom: 4px solid var(--safety-orange);
+            display: flex; flex-direction: column; min-height: 150px;
+        }
+        .info-card:hover { transform: translateY(-8px); background: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .info-card h3 { color: var(--safety-orange); font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; z-index: 2; }
+        .info-card p { font-size: 0.9rem; color: #ccc; z-index: 2; }
+        .info-card::after {
+            content: '⚙️'; position: absolute; right: -5px; bottom: -10px;
+            font-size: 4rem; color: rgba(255,136,0,0.07); z-index: 1;
+        }
+
+        /* --- Technique Style --- */
+        .technique-box { background: #fff; padding: 20px; border-left: 5px solid var(--safety-orange); margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .technique-box strong { color: var(--charcoal); font-size: 1.1rem; display: block; margin-bottom: 5px; }
+
+        /* --- CTA Section --- */
+        .cta-box {
+            background: var(--charcoal); color: white; padding: 60px;
+            text-align: center; margin-top: 60px; border-radius: 8px;
+            border-top: 6px solid var(--safety-orange);
+        }
+        .cta-box h2 { margin-bottom: 15px; font-size: 2rem; color: var(--safety-orange); }
+        .cta-btn {
+            display: inline-block; background: var(--safety-orange); color: #000;
+            padding: 16px 35px; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; border-radius: 4px; transition: 0.3s; margin-top: 20px;
+        }
+        .cta-btn:hover { background: #e67a00; transform: scale(1.05); }
+
+        footer { background: #000; color: #666; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero-sub h1 { font-size: 2rem; }
+            .detail-container { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-btn">DEEP CIVIL SOLUTIONS</a>
+    <a href="index.html" class="back-btn">← BACK TO HOME</a>
+</header>
+
+<section class="hero-sub">
+    <h1>Diamond <span>Concrete</span> Cutting</h1>
+</section>
+
+<div class="detail-container">
+    <div class="description-box">
+        <h2>Precision Demolition & Renovation</h2>
+        <p>
+            Diamond Concrete Cutting is a high-precision, heavy-duty cutting technique used to create clean and controlled openings in reinforced concrete, brickwork, and stone. Unlike traditional methods, diamond cutting uses specialized industrial-grade diamond blades to "grind" through the hardest materials with surgical accuracy.
+        </p>
+        <p>
+            This method is essential for modern construction where structural integrity must be maintained. It is a <strong>dust-free, vibration-free</strong> process that ensures the surrounding concrete remains undamaged.
+        </p>
+    </div>
+
+    <div class="section-title"><h2>Key <span>Benefits</span></h2></div>
+    <div class="grid-layout">
+        <div class="info-card">
+            <h3>Extreme Precision</h3>
+            <p>Delivers perfectly straight edges that require little to no finishing.</p>
+        </div>
+        <div class="info-card">
+            <h3>Vibration-Free</h3>
+            <p>Prevents micro-cracks from forming in the rest of the structure.</p>
+        </div>
+        <div class="info-card">
+            <h3>Dust-Free (Wet Cutting)</h3>
+            <p>Water suppress dust and cools the blade, safe for indoor environments.</p>
+        </div>
+        <div class="info-card">
+            <h3>High Speed & Efficiency</h3>
+            <p>Cuts through heavy steel reinforcement much faster than any other method.</p>
+        </div>
+        <div class="info-card">
+            <h3>Low Noise</h3>
+            <p>Significantly quieter than traditional demolition methods.</p>
+        </div>
+    </div>
+
+    <div class="section-title"><h2>Core <span>Techniques</span></h2></div>
+    <div class="technique-box">
+        <strong>Wall Sawing</strong>
+        <p>Used for vertical or steep surfaces to create precise openings for doors, windows, and HVAC ducts.</p>
+    </div>
+    <div class="technique-box">
+        <strong>Floor (Slab) Sawing</strong>
+        <p>Ideal for cutting trenches for pipes, expansion joints, and removing large sections of pavement.</p>
+    </div>
+    <div class="technique-box">
+        <strong>Wire Sawing</strong>
+        <p>Flexible diamond wire used for cutting extremely large or complex structures where blades cannot reach.</p>
+    </div>
+    <div class="technique-box">
+        <strong>Core Drilling</strong>
+        <p>Creating perfectly circular holes for plumbing, electrical cables, and structural testing.</p>
+    </div>
+
+    <div class="section-title"><h2>Where <span>It Is Used</span></h2></div>
+    <div class="grid-layout">
+        <div class="info-card"><h3>Industrial Plant Renovations</h3></div>
+        <div class="info-card"><h3>Bridge and Highway Demolition</h3></div>
+        <div class="info-card"><h3>Creating HVAC & Plumbing Voids</h3></div>
+        <div class="info-card"><h3>Basement & Retaining Wall Alterations</h3></div>
+        <div class="info-card"><h3>Controlled Demolition of RC Structures</h3></div>
+    </div>
+
+    <div class="cta-box">
+        <h2>Precision Cutting Without the Damage?</h2>
+        <p>Get surgical accuracy for your concrete removal projects with our diamond cutting services.</p>
+        <a href="https://wa.me/919824435362" class="cta-btn">TALK TO AN EXPERT</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 DEEP CIVIL SOLUTIONS | Precision Concrete Cutting Division
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Densification | Deep Civil Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --safety-orange: #ff8800;
+            --charcoal: #1a1a1a;
+            --white: #ffffff;
+            --light-bg: #f4f4f4;
+            --deep-blue: #1e3a8a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        body { background: var(--light-bg); color: #333; line-height: 1.6; }
+
+        /* --- Header & Hero --- */
+        header {
+            background: var(--charcoal); padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 4px solid var(--safety-orange);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
+        .back-btn:hover { background: var(--safety-orange); color: #000; border-color: var(--safety-orange); }
+
+        .hero-sub {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('floor_densification_hero.jpg'); 
+            background-size: cover; background-position: center;
+            height: 300px; display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
+        }
+        .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
+        .hero-sub span { color: var(--safety-orange); }
+
+        /* --- Content Section --- */
+        .detail-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
+        
+        .description-box { 
+            background: white; padding: 40px; border-radius: 8px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
+            margin-bottom: 50px;
+        }
+        .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
+        .description-box p { font-size: 1.1rem; color: #444; text-align: justify; }
+
+        /* --- Services/Applications Grid --- */
+        .services-title { text-align: center; margin-bottom: 40px; }
+        .services-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
+        .services-title h2::after { content: ''; width: 60px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+        
+        .service-card {
+            background: var(--charcoal); color: white; padding: 25px;
+            border-radius: 4px; transition: 0.4s ease; position: relative;
+            overflow: hidden; border-bottom: 4px solid var(--safety-orange);
+            display: flex; flex-direction: column; justify-content: center;
+            min-height: 120px;
+        }
+        .service-card:hover { transform: translateY(-8px); background: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .service-card h3 { 
+            color: var(--safety-orange); font-size: 1.1rem; line-height: 1.4;
+            position: relative; z-index: 2;
+        }
+        .service-card::after {
+            content: '💎'; position: absolute; right: -5px; bottom: -10px;
+            font-size: 4rem; color: rgba(255,136,0,0.07); z-index: 1;
+        }
+
+        /* --- CTA Section --- */
+        .cta-box {
+            background: var(--charcoal); color: white; padding: 60px;
+            text-align: center; margin-top: 60px; border-radius: 8px;
+            border-top: 6px solid var(--safety-orange);
+        }
+        .cta-box h2 { margin-bottom: 15px; font-size: 2rem; color: var(--safety-orange); }
+        .cta-box p { margin-bottom: 25px; color: #ccc; }
+        .cta-btn {
+            display: inline-block; background: var(--safety-orange); color: #000;
+            padding: 16px 35px; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; border-radius: 4px; transition: 0.3s;
+        }
+        .cta-btn:hover { background: #e67a00; transform: scale(1.05); }
+
+        footer { background: #000; color: #666; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero-sub h1 { font-size: 2.2rem; }
+            .detail-container { padding: 40px 5%; }
+            .description-box { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-btn">DEEP CIVIL SOLUTIONS</a>
+    <a href="index.html" class="back-btn">← BACK TO HOME</a>
+</header>
+
+<section class="hero-sub">
+    <h1>Floor <span>Densification</span></h1>
+</section>
+
+<div class="detail-container">
+    <div class="description-box">
+        <h2>Industrial Floor Hardening</h2>
+        <p>
+            Floor Densification kisi bhi facility ke liye ek practical, decorative aur economical floor system hai. Ye tezi se badhne wala product banta ja raha hai. Floor densification ek multi-step mechanical grinding aur polishing process hai, jisme industrial diamonds aur liquid hardener ka upyog kiya jata hai taaki floor ko level, densify, aur polish kiya ja sake. Ant mein, ye floor surface ko andar se puri tarah seal kar deta hai.
+        </p>
+    </div>
+
+    <div class="services-title">
+        <h2>Key <span>Applications</span></h2>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card"><h3>Manufacturing Plants</h3></div>
+        <div class="service-card"><h3>Warehouses & Storage</h3></div>
+        <div class="service-card"><h3>Commercial Buildings</h3></div>
+        <div class="service-card"><h3>Airports facilities</h3></div>
+        <div class="service-card"><h3>Railway facilities</h3></div>
+        <div class="service-card"><h3>Airplane Hangers</h3></div>
+        <div class="service-card"><h3>Sports Arenas</h3></div>
+        <div class="service-card"><h3>Convention Centres</h3></div>
+    </div>
+
+    <div class="cta-box">
+        <h2>Convert Your Concrete into Dust-Free Floor</h2>
+        <p>Get a durable, long-lasting, and high-shine floor with our densification process.</p>
+        <a href="https://wa.me/919824435362" class="cta-btn">TALK TO AN EXPERT</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 DEEP CIVIL SOLUTIONS | Concrete Polishing Division
+</footer>
+
+</body>
+</html>
