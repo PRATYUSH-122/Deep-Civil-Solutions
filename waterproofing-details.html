@@ -30,12 +30,12 @@
         .back-btn:hover { background: var(--safety-orange); color: #000; border-color: var(--safety-orange); }
 
         .hero-sub {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image_799285.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('water.jpg'); 
             background-size: cover; background-position: center;
-            height: 300px; display: flex; align-items: center; justify-content: center;
+            height: 400px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
-        .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
+        .hero-sub h1 { font-size: 3.5rem; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .hero-sub span { color: var(--safety-orange); }
 
         /* --- Content Section --- */
@@ -56,25 +56,28 @@
 
         .services-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
         }
         
         .service-card {
-            background: var(--charcoal); color: white; padding: 25px;
-            border-radius: 4px; transition: 0.4s ease; position: relative;
-            overflow: hidden; border-bottom: 4px solid var(--safety-orange);
-            display: flex; flex-direction: column; justify-content: center;
-            min-height: 140px;
+            background: var(--white); color: var(--charcoal);
+            border-radius: 8px; transition: 0.4s ease; position: relative;
+            overflow: hidden; border-bottom: 5px solid var(--safety-orange);
+            display: flex; flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .service-card:hover { transform: translateY(-8px); background: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        
+        .service-img {
+            width: 100%; height: 200px; object-fit: cover;
+            border-bottom: 2px solid var(--safety-orange);
+        }
+
+        .service-info { padding: 20px; }
         .service-card h3 { 
-            color: var(--safety-orange); font-size: 1.1rem; line-height: 1.4;
-            position: relative; z-index: 2;
-        }
-        .service-card::after {
-            content: '💧'; position: absolute; right: -5px; bottom: -10px;
-            font-size: 4rem; color: rgba(255,136,0,0.07); z-index: 1;
+            color: var(--charcoal); font-size: 1.1rem; line-height: 1.4;
+            font-weight: 700;
         }
 
         /* --- CTA Section --- */
@@ -95,7 +98,7 @@
         footer { background: #000; color: #666; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
-            .hero-sub h1 { font-size: 2.2rem; }
+            .hero-sub h1 { font-size: 2.5rem; }
             .detail-container { padding: 40px 5%; }
             .description-box { padding: 25px; }
         }
@@ -126,22 +129,34 @@
 
     <div class="services-grid">
         <div class="service-card">
-            <h3>Acrylic and polymer based waterproofing treatments</h3>
+                        <div class="service-info">
+                <h3>Acrylic and polymer based waterproofing treatments</h3>
+            </div>
         </div>
         <div class="service-card">
-            <h3>PU and coal tar based coating</h3>
+                        <div class="service-info">
+                <h3>PU and coal tar based coating</h3>
+            </div>
         </div>
         <div class="service-card">
-            <h3>Food grade waterproofing for water tanks & pools</h3>
+                        <div class="service-info">
+                <h3>Food grade waterproofing for water tanks & pools</h3>
+            </div>
         </div>
         <div class="service-card">
-            <h3>Liquid applied Membrane</h3>
+                        <div class="service-info">
+                <h3>Liquid applied Membrane</h3>
+            </div>
         </div>
         <div class="service-card">
-            <h3>APP modified Membrane</h3>
+                        <div class="service-info">
+                <h3>APP modified Membrane</h3>
+            </div>
         </div>
         <div class="service-card">
-            <h3>Epoxy and polymer based injection grouting</h3>
+            <div class="service-info">
+                <h3>Epoxy and polymer based injection grouting</h3>
+            </div>
         </div>
     </div>
 
