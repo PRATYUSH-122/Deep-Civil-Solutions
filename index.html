@@ -139,9 +139,13 @@
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .service-box { 
-            background: #fff; padding: 25px; border-left: 5px solid var(--safety-orange); 
+            background: #fff; padding: 0px; border-left: 5px solid var(--safety-orange); 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; position: relative;
+            overflow: hidden;
         }
+        /* --- ADDED CSS FOR SERVICE IMAGES --- */
+        .service-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .service-content { padding: 20px; }
         .service-box:hover { background: #fefefe; transform: translateY(-3px); }
 
         .clients-section { background: var(--charcoal); color: white; padding: 80px 8%; }
@@ -160,7 +164,6 @@
         
         footer { background: #000; color: #666; text-align: center; padding: 40px; font-size: 0.9rem; }
         
-        /* --- ADDED RESPONSIVE CSS (Nothing Else Changed) --- */
         @media (max-width: 992px) { 
             .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; } 
             header { justify-content: center; text-align: center; padding: 15px 5%; }
@@ -283,39 +286,60 @@
         <div class="section-title"><h2>Specialized <span>Services</span></h2></div>
         <div class="services-grid">
             <div class="service-box" onclick="window.open('waterproofing-details.html', '_blank')">
-                <h3>Water Proofing</h3>
-                <p>Leakage protection for all industrial structures.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="waterproofing-thumb.jpg" alt="Waterproofing" class="service-img">
+                <div class="service-content">
+                    <h3>Water Proofing</h3>
+                    <p>Leakage protection for all industrial structures.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('epoxy-flooring-details.html', '_blank')">
-                <h3>Epoxy Flooring</h3>
-                <p>Pharma&Food grade high-performance flooring.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="epoxy-flooring-thumb.jpg" alt="Epoxy Flooring" class="service-img">
+                <div class="service-content">
+                    <h3>Epoxy Flooring</h3>
+                    <p>Pharma&Food grade high-performance flooring.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('floor-densification-details.html', '_blank')">
-                <h3>Floor densification</h3>
-                <p>Concrete hardening for dust-free warehouses.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="floor-densification-thumb.jpg" alt="Floor Densification" class="service-img">
+                <div class="service-content">
+                    <h3>Floor densification</h3>
+                    <p>Concrete hardening for dust-free warehouses.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('pu-flooring-details.html', '_blank')">
-                <h3>PU Concrete Flooring</h3>
-                <p>Maximum thermal & chemical resistance solutions.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="pu-flooring-thumb.jpg" alt="PU Flooring" class="service-img">
+                <div class="service-content">
+                    <h3>PU Concrete Flooring</h3>
+                    <p>Maximum thermal & chemical resistance solutions.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('grouting-details.html', '_blank')">
-                <h3>Grouting</h3>
-                <p>Precision machine foundation & structural grouting.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="grouting-thumb.jpg" alt="Grouting" class="service-img">
+                <div class="service-content">
+                    <h3>Grouting</h3>
+                    <p>Precision machine foundation & structural grouting.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('concrete-cutting-details.html', '_blank')">
-                <h3>Diamond Concrete Cutting</h3>
-                <p>Fast & accurate industrial cutting.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="concrete-cutting-thumb.jpg" alt="Concrete Cutting" class="service-img">
+                <div class="service-content">
+                    <h3>Diamond Concrete Cutting</h3>
+                    <p>Fast & accurate industrial cutting.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
             <div class="service-box" onclick="window.open('structure-strengthening-details.html', '_blank')">
-                <h3>Structure Strengthening</h3>
-                <p>Repair and retrofitting for industrial buildings.</p>
-                <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                <img src="structure-strengthening-thumb.jpg" alt="Structure Strengthening" class="service-img">
+                <div class="service-content">
+                    <h3>Structure Strengthening</h3>
+                    <p>Repair and retrofitting for industrial buildings.</p>
+                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
+                </div>
             </div>
         </div>
     </section>
