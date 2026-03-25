@@ -16,80 +16,42 @@
             --sky-blue: #00aeef; 
         }
 
-        /* --- FIXED HEADING HIDING ISSUE --- */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 100px; 
         }
 
         @media (max-width: 992px) {
-            html {
-                scroll-padding-top: 160px; 
-            }
+            html { scroll-padding-top: 160px; }
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: var(--light-bg); color: #222; line-height: 1.6; overflow-x: hidden; width: 100%; }
 
-        img { max-width: 100%; height: auto; }
+        img { max-width: 100%; height: auto; display: block; }
 
-        .experience-tag {
-            background: var(--safety-orange);
-            color: #000;
-            display: inline-block;
-            padding: 10px 20px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            box-shadow: 4px 4px 0px var(--charcoal);
-            font-size: 1.1rem;
-        }
-
-        /* --- ROBOTIC POPUP --- */
-        #bot-popup {
-            position: fixed; bottom: 100px; right: 30px; width: 320px;
-            background: #fff; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-            z-index: 2000; border-top: 6px solid var(--safety-orange);
-            display: none; flex-direction: column; overflow: hidden;
-            animation: slideUp 0.5s ease-out;
-        }
-        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        .bot-header { background: var(--charcoal); color: var(--safety-orange); padding: 15px; display: flex; align-items: center; gap: 10px; font-weight: bold; position: relative; }
-        .bot-close { position: absolute; right: 15px; color: #fff; cursor: pointer; font-size: 20px; }
-        .bot-body { padding: 20px; text-align: left; }
-        .bot-msg { background: #f1f1f1; padding: 12px; border-radius: 0 15px 15px 15px; font-size: 0.9rem; margin-bottom: 15px; color: #333; line-height: 1.4; border-left: 3px solid var(--safety-orange); }
-        .bot-options button { 
-            width: 100%; padding: 10px; margin-bottom: 8px; border: 1px solid var(--safety-orange);
-            background: transparent; color: var(--charcoal); cursor: pointer; border-radius: 5px;
-            font-weight: 600; font-size: 0.85rem; transition: 0.3s;
-        }
-        .bot-options button:hover { background: var(--safety-orange); color: #000; }
-
-        /* --- WHATSAPP --- */
-        .chat-widget {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000; 
-            display: flex; align-items: center; background: var(--whatsapp-green); 
-            color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; 
-            font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); 
-            transition: 0.3s; animation: pulse-green 2s infinite;
-        }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
+        /* --- HEADER & MOBILE NAV FIX --- */
         header {
             background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--safety-orange);
-            gap: 15px;
+            gap: 15px; flex-wrap: wrap;
         }
         .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.3rem; border-radius: 4px; line-height: 1.2; text-align: center; }
-        .home-btn { background: #222; color: #fff; border: 1px solid #444; padding: 8px 15px; text-decoration: none; font-size: 0.8rem; font-weight: bold; border-radius: 4px; display: flex; align-items: center; }
-
+        
+        nav { width: auto; }
         nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
         nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+
+        /* Mobile specific Header */
+        @media (max-width: 992px) {
+            header { padding: 10px 5%; justify-content: center; flex-direction: column; }
+            .logo-btn { font-size: 1.1rem; width: 100%; margin-bottom: 5px; }
+            nav { width: 100%; display: block !important; } /* Hidden nahi hoga */
+            nav ul { justify-content: center; gap: 10px; }
+            nav ul li a { font-size: 0.7rem; }
+        }
 
         .section-padding { padding: 60px 8%; }
         .section-title { text-align: center; margin-bottom: 50px; }
@@ -97,118 +59,49 @@
         .section-title h2::after { content: ''; width: 70px; height: 5px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
         .section-title span { color: var(--safety-orange); }
 
+        .experience-tag {
+            background: var(--safety-orange); color: #000; display: inline-block;
+            padding: 10px 20px; font-family: 'Oswald', sans-serif; font-weight: 700;
+            letter-spacing: 1px; border-radius: 4px; margin-bottom: 25px;
+            box-shadow: 4px 4px 0px var(--charcoal); font-size: 1.1rem;
+        }
+
+        /* About & Method Grids */
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: flex-start; }
-        .about-text p { margin-bottom: 20px; font-size: 1.05rem; text-align: justify; }
-        .why-us-box { background: var(--charcoal); color: white; padding: 35px; border-radius: 4px; border-top: 8px solid var(--safety-orange); }
-        .why-us-box h3 { color: var(--safety-orange); margin-bottom: 20px; font-size: 1.6rem; }
-        .why-list { list-style: none; margin-bottom: 25px;}
-        .why-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; }
-        .why-list li::before { content: '✔'; color: var(--safety-orange); font-weight: bold; font-size: 1.2rem; }
-        
-        .about-img-wrap { margin-bottom: 25px; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 100%; }
-        .about-img-wrap img { width: 100%; display: block; object-fit: cover; height: auto; max-height: 500px;} 
-
         .work-method-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; }
-        .work-method-img img { width: 100%; border-radius: 8px; border-bottom: 5px solid var(--safety-orange); min-height: 250px; object-fit: cover; }
-        .method-points { list-style: none; margin-top: 20px; }
-        .method-points li { margin-bottom: 12px; padding-left: 25px; position: relative; font-weight: 600; }
-        .method-points li::before { content: '»'; position: absolute; left: 0; color: var(--safety-orange); font-size: 1.2rem; }
-
-        .raw-materials-section { background: #0b0f19; color: white; padding: 80px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .mat-text h2 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.1; }
-        .mat-text h2 span { color: var(--sky-blue); }
-        .mat-text p { color: #bdc3c7; margin-bottom: 30px; font-size: 1.1rem; }
         
-        .brand-flex { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
-        .brand-card { 
-            background: #ffffff; padding: 25px; border-radius: 8px; flex: 1; min-width: 200px;
-            text-align: center; border-bottom: 5px solid var(--sky-blue);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px;
-        }
-        .brand-card img { width: 100%; max-width: 150px; height: auto; object-fit: contain; }
-        .brand-card p { color: var(--sky-blue); font-size: 0.85rem; font-weight: 800; margin-top: 15px; text-transform: uppercase; letter-spacing: 1.5px; }
-        
-        .project-topic-badge { 
-            background: var(--charcoal); color: var(--safety-orange); display: inline-block; 
-            padding: 12px 25px; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; 
-            letter-spacing: 1.5px; border-left: 8px solid var(--safety-orange); margin-bottom: 25px; 
-            margin-top: 40px; box-shadow: 5px 5px 0px rgba(255, 136, 0, 0.2); text-transform: uppercase;
+        @media (max-width: 768px) {
+            .about-grid, .work-method-container { grid-template-columns: 1fr; }
+            .section-padding { padding: 40px 5%; }
         }
 
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 20px; } 
-        .work-card { background: #fff; border-bottom: 4px solid var(--safety-orange); overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .work-card img { width: 100%; height: 250px; object-fit: cover; transition: 0.6s ease; display: block; } 
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        /* --- SPECIALIZED SERVICES FIX (Image_7ad504 fix) --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .service-box { 
-            background: #fff; padding: 0px; border-left: 5px solid var(--safety-orange); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; position: relative;
-            overflow: hidden;
+            background: #fff; border-left: 5px solid var(--safety-orange); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer;
+            display: flex; flex-direction: column; overflow: hidden;
         }
-        .service-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-        .service-content { padding: 20px; }
-        .service-box:hover { background: #fefefe; transform: translateY(-3px); }
+        .service-content { padding: 20px; position: relative; z-index: 2; background: #fff; }
 
+        /* Client Grid Fix */
         .clients-section { background: var(--charcoal); color: white; padding: 80px 8%; }
         .client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
-        .client-item { 
-            background: #262626; padding: 15px; border-left: 4px solid var(--safety-orange); font-size: 0.82rem;
-            transition: all 0.4s ease; cursor: default;
-        }
-        .client-item:hover { background: #333; transform: translateY(-5px); box-shadow: 0 5px 25px rgba(255, 136, 0, 0.6); color: #fff; font-weight: bold; border-right: 1px solid var(--safety-orange); }
+        @media (max-width: 768px) { .client-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .client-grid { grid-template-columns: 1fr; } }
+        
+        .client-item { background: #262626; padding: 15px; border-left: 4px solid var(--safety-orange); font-size: 0.82rem; }
 
+        /* Contact Fix */
         .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .contact-info { background: #111; color: white; padding: 30px; border-right: 10px solid var(--safety-orange); }
-        .info-block { margin-bottom: 25px; }
-        .info-block h4 { color: var(--safety-orange); font-size: 1.1rem; margin-bottom: 8px; border-bottom: 1px solid #333; display: inline-block; padding-bottom: 5px; }
-        .submit-btn { background: var(--safety-orange); color: #000; border: none; padding: 18px; font-weight: 800; cursor: pointer; text-transform: uppercase; width: 100%; transition: 0.3s; font-size: 1rem; }
         
-        footer { background: #000; color: #666; text-align: center; padding: 40px; font-size: 0.9rem; }
-        
-        /* --- MOBILE FIXES --- */
-        @media (max-width: 992px) { 
-            header { padding: 15px 5%; justify-content: center; flex-direction: column; gap: 10px; }
-            .logo-btn { font-size: 1.1rem; width: 100%; }
-            nav { display: none; }
-            .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; gap: 30px; } 
-        }
-
-        @media (max-width: 768px) {
-            .section-padding { padding: 40px 5%; }
-            .brand-flex { flex-direction: column; }
-            #bot-popup { width: 90%; right: 5%; bottom: 85px; }
-            .chat-widget { bottom: 20px; right: 20px; padding: 10px 20px; font-size: 0.8rem; }
-            .client-grid { grid-template-columns: repeat(2, 1fr); }
-            .section-title h2 { font-size: 1.8rem; }
-            .mat-text h2 { font-size: 2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .client-grid { grid-template-columns: 1fr; }
-            .logo-btn { font-size: 1rem; }
-            .experience-tag { font-size: 0.9rem; padding: 8px 15px; }
-            .work-card img { height: 200px; }
-        }
+        /* Widgets */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--whatsapp-green); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        #bot-popup { position: fixed; bottom: 100px; right: 30px; width: 320px; background: #fff; border-radius: 15px; z-index: 2000; border-top: 6px solid var(--safety-orange); display: none; flex-direction: column; }
+        @media (max-width: 768px) { #bot-popup { width: 90%; right: 5%; bottom: 85px; } }
     </style>
 </head>
 <body>
-
-    <div id="bot-popup">
-        <div class="bot-header">
-            <span class="bot-icon">🤖</span> DCS Assistant
-            <span class="bot-close" onclick="closeBot()">&times;</span>
-        </div>
-        <div class="bot-body">
-            <div class="bot-msg" id="bot-text">Namaste! I am your assistant from Deep Civil Solutions. How can I help you today?</div>
-            <div class="bot-options" id="bot-options">
-                <button onclick="botResponse('epoxy')">Epoxy Flooring Inquiry</button>
-                <button onclick="botResponse('waterproof')">Waterproofing Solutions</button>
-                <button onclick="botResponse('expert')">Talk to an Expert</button>
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/919824435362" class="chat-widget" target="_blank"><span>Whatsapp Contact</span></a>
 
     <header>
         <a href="#" class="logo-btn">DEEP CIVIL SOLUTIONS</a>
@@ -228,29 +121,23 @@
         <div class="about-grid">
             <div class="about-text">
                 <div class="experience-tag">ESTABLISHED SINCE 2015</div>
-                <div class="about-img-wrap">
-                    <img src="google_image1.0.jpeg" alt="Deep Civil Solutions Industrial Expert">
-                </div>
+                <img src="google_image1.0.jpeg" style="width:100%; border-radius:4px; margin-bottom:20px;">
                 <p>Since 2015, <strong>Deep Civil Solutions</strong> is engaged in providing various kind of civil construction services that include civil construction work, civil engineering services & infrastructure development services & interior designing.</p>
                 <p>Further, we provide one stop platform to solve problems in construction field such as epoxy flooring, epoxy coating, PU flooring, PU coating, all types of water proofing, structure strengthening, floor densification, diamond concrete cutting, coating for metal and concrete structures.</p>
                 <div style="background: #e9ecef; padding: 20px; border-left: 5px solid var(--charcoal); font-style: italic; font-weight: 600;">
                     "We only employ fully qualified, experienced industrial painters to undertake our projects. This helps us to maintain our well-earned reputation."
                 </div>
             </div>
-            
-            <div class="why-us-box">
+            <div class="why-us-box" style="background: var(--charcoal); color: white; padding: 35px; border-radius: 4px; border-top: 8px solid var(--safety-orange);">
                 <h3>WHY OUR COMPANY</h3>
-                <ul class="why-list">
-                    <li>GREAT VALUE</li>
-                    <li>GREAT SERVICE</li>
-                    <li>AWESOME MANPOWER</li>
-                    <li>AWESOME MANAGEMENT OF TIME</li>
-                    <li>SYSTEMATIC SOLUTIONS AND WORKING</li>
-                    <li>TRUSTWORTHY AND HONEST</li>
+                <ul style="list-style: none; margin-top:20px;">
+                    <li style="margin-bottom:12px;">✔ GREAT VALUE</li>
+                    <li style="margin-bottom:12px;">✔ GREAT SERVICE</li>
+                    <li style="margin-bottom:12px;">✔ AWESOME MANPOWER</li>
+                    <li style="margin-bottom:12px;">✔ AWESOME MANAGEMENT OF TIME</li>
+                    <li style="margin-bottom:12px;">✔ SYSTEMATIC SOLUTIONS AND WORKING</li>
+                    <li style="margin-bottom:12px;">✔ TRUSTWORTHY AND HONEST</li>
                 </ul>
-                <div class="about-img-wrap" style="box-shadow: none; border: 2px solid var(--safety-orange);">
-                    <img src="google_image2.jpg" alt="Quality Flooring Project">
-                </div>
             </div>
         </div>
     </section>
@@ -258,37 +145,18 @@
     <section id="how-we-work" class="section-padding" style="background: #efefef;">
         <div class="section-title"><h2>How We <span>Work</span></h2></div>
         <div class="work-method-container">
-            <div class="work-method-text">
+            <div>
                 <p>We understand the importance of preparing the surfaces properly before commencing any work, removing and cleaning away loose paint and the like ensuring the finished surface will last longer.</p>
-                <h3 style="margin-top:20px; color:var(--deep-blue); font-family:'Oswald';">Attention to Detail</h3>
+                <h3 style="margin-top:20px; color:var(--deep-blue);">Attention to Detail</h3>
                 <p>It is this attention to detail that has seen us gain such a high reputation for industrial painting and flooring.</p>
-                <ul class="method-points">
-                    <li>Flexible working hours</li>
-                    <li>Value for money</li>
-                    <li>Tailored packages</li>
-                    <li>No obligation, free quotations</li>
+                <ul style="margin-top:20px; list-style:none;">
+                    <li>» Flexible working hours</li>
+                    <li>» Value for money</li>
+                    <li>» Tailored packages</li>
+                    <li>» No obligation, free quotations</li>
                 </ul>
             </div>
-            <div class="work-method-img">
-                <img src="industrial_surface_prepration.jpg" alt="Industrial Surface Preparation">
-            </div>
-        </div>
-    </section>
-
-    <section id="raw-materials" class="raw-materials-section">
-        <div class="mat-text">
-            <h2>Raw <br><span>Materials</span></h2>
-            <p>We use high quality & certified products and ensure that the end finish provided is of superior quality. We are also concerned regarding the safety & welfare of our work workforce.</p>
-            <div class="brand-flex">
-                <div class="brand-card">
-                    <img src="sika_image1.jpg" alt="Sika"> 
-                    <p>BUILDING TRUST</p>
-                </div>
-                <div class="brand-card">
-                    <img src="basf_image.jpg" alt="BASF"> 
-                    <p>WE CREATE CHEMISTRY</p>
-                </div>
-            </div>
+            <img src="industrial_surface_prepration.jpg" style="border-radius:8px; border-bottom:5px solid var(--safety-orange);">
         </div>
     </section>
 
@@ -296,79 +164,26 @@
         <div class="section-title"><h2>Specialized <span>Services</span></h2></div>
         <div class="services-grid">
             <div class="service-box" onclick="window.open('waterproofing-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Water Proofing</h3>
-                    <p>Leakage protection for all industrial structures.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Water Proofing</h3><p>Leakage protection for all industrial structures.</p></div>
             </div>
             <div class="service-box" onclick="window.open('epoxy-flooring-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Epoxy Flooring</h3>
-                    <p>Pharma&Food grade high-performance flooring.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Epoxy Flooring</h3><p>Pharma&Food grade high-performance flooring.</p></div>
             </div>
             <div class="service-box" onclick="window.open('floor-densification-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Floor densification</h3>
-                    <p>Concrete hardening for dust-free warehouses.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Floor densification</h3><p>Concrete hardening for dust-free warehouses.</p></div>
             </div>
             <div class="service-box" onclick="window.open('pu-flooring-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>PU Concrete Flooring</h3>
-                    <p>Maximum thermal & chemical resistance solutions.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>PU Concrete Flooring</h3><p>Maximum thermal & chemical resistance solutions.</p></div>
             </div>
             <div class="service-box" onclick="window.open('grouting-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Grouting</h3>
-                    <p>Precision machine foundation & structural grouting.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Grouting</h3><p>Precision machine foundation & structural grouting.</p></div>
             </div>
             <div class="service-box" onclick="window.open('concrete-cutting-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Diamond Concrete Cutting</h3>
-                    <p>Fast & accurate industrial cutting.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Diamond Concrete Cutting</h3><p>Fast & accurate industrial cutting.</p></div>
             </div>
             <div class="service-box" onclick="window.open('structure-strengthening-details.html', '_blank')">
-                <div class="service-content">
-                    <h3>Structure Strengthening</h3>
-                    <p>Repair and retrofitting for industrial buildings.</p>
-                    <div style="font-size: 0.8rem; color: var(--safety-orange); font-weight: bold; margin-top: 5px;">View Detailed Details →</div>
-                </div>
+                <div class="service-content"><h3>Structure Strengthening</h3><p>Repair and retrofitting for industrial buildings.</p></div>
             </div>
-        </div>
-    </section>
-
-    <section class="section-padding">
-        <div class="section-title"><h2>Project <span>Gallery</span></h2></div>
-        <div class="project-topic-badge">1. PHARMA EPOXY FLOORING</div>
-        <div class="work-grid">
-            <div class="work-card"><img src="image_1f5dc0.jpg"></div>
-            <div class="work-card"><img src="image_1f5a7f.jpg"></div>
-            <div class="work-card"><img src="image_1f5a61.jpg"></div>
-            <div class="work-card"><img src="image_1f5a42.jpg"></div>
-        </div>
-        <div class="project-topic-badge">2. PU & FLOOR DENSIFICATION</div>
-        <div class="work-grid">
-            <div class="work-card"><img src="image_203bda.jpg"></div>
-            <div class="work-card"><img src="image_203bbb.jpg"></div>
-            <div class="work-card"><img src="image_203b9d.jpg"></div>
-            <div class="work-card"><img src="image_203b95.jpg"></div>
-            <div class="work-card"><img src="image_203b77.jpg"></div>
-        </div>
-        <div class="project-topic-badge">3. WATERPROOFING SOLUTIONS</div>
-        <div class="work-grid">
-            <div class="work-card"><img src="image_1fbff9.jpg"></div>
-            <div class="work-card"><img src="image_1fbf9c.jpg"></div>
-            <div class="work-card"><img src="image_1fbf78.jpg"></div>
         </div>
     </section>
 
@@ -425,7 +240,7 @@
             <div class="client-item">SSS PHARMA - RAJKOT</div>
             <div class="client-item">ZALANI PAPPER MART -KASEZ GANDHIDHAM</div>
             <div class="client-item">POWERTRAC SOLAR PROJECT LTD. - LIMBDI</div>
-            <div class="client-item =">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
+            <div class="client-item">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
             <div class="client-item">VIJAY MAMARA - AHMEDABAD</div>
             <div class="client-item">COSMIC PV SOLAR - KIM SURAT</div>
             <div class="client-item">AVANCE RESECRCH PVT.LTD - RAJKOT</div>
@@ -442,30 +257,23 @@
         <div class="section-title"><h2>Get In <span>Touch</span></h2></div>
         <div class="contact-container">
             <div class="contact-info">
-                <div class="info-block">
-                    <h4>📍 ADDRESS</h4>
-                    <p>305, Heera Panna Complex,<br>DR. Yagnik Road, Rajkot, Gujarat.</p>
-                </div>
-                <div class="info-block">
-                    <h4>📞 CONTACT NUMBERS</h4>
-                    <p>+91 98244 35362<br>+91 99241 29182</p>
-                </div>
-                <div class="info-block">
-                    <h4>📧 EMAIL ID</h4>
-                    <p>abhishek.teamdcs@gmail.com</p>
-                </div>
+                <h4>📍 ADDRESS</h4>
+                <p>305, Heera Panna Complex,<br>DR. Yagnik Road, Rajkot, Gujarat.</p>
+                <br>
+                <h4>📞 CONTACT</h4>
+                <p>+91 98244 35362<br>+91 99241 29182</p>
             </div>
-            <div style="background:white; padding:40px; border-top:8px solid var(--safety-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div style="background:white; padding:40px; border-top:8px solid var(--safety-orange);">
                 <form id="enquiryForm">
-                    <input type="text" id="fullName" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; outline:none;" required>
-                    <textarea id="requirement" placeholder="Your Requirement" style="width:100%; padding:15px; height:110px; border:1px solid #ddd; margin-bottom:15px; outline:none;" required></textarea>
-                    <button type="button" onclick="sendWhatsappEnquiry()" class="submit-btn">Send Enquiry Now</button>
+                    <input type="text" id="fullName" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;" required>
+                    <textarea id="requirement" placeholder="Your Requirement" style="width:100%; padding:15px; height:110px; border:1px solid #ddd; margin-bottom:15px;" required></textarea>
+                    <button type="button" onclick="sendWhatsappEnquiry()" class="submit-btn" style="background:var(--safety-orange); color:#000; border:none; padding:18px; font-weight:800; width:100%; cursor:pointer;">Send Enquiry Now</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer>&copy; 2024 DEEP CIVIL SOLUTIONS | Industrial Flooring & Waterproofing.</footer>
+    <a href="https://wa.me/919824435362" class="chat-widget" target="_blank">Whatsapp Contact</a>
 
     <script>
         function sendWhatsappEnquiry() {
@@ -476,7 +284,6 @@
             window.open("https://wa.me/919824435362?text=" + message, '_blank');
         }
         setTimeout(() => { document.getElementById('bot-popup').style.display = 'flex'; }, 3000);
-        function closeBot() { document.getElementById('bot-popup').style.display = 'none'; }
     </script>
 </body>
 </html>
