@@ -10,7 +10,7 @@
             --safety-orange: #ff8800;
             --charcoal: #1a1a1a;
             --white: #ffffff;
-            --light-bg: #f9f9f9;
+            --light-bg: #f8f9fa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -19,13 +19,21 @@
 
         /* --- Header --- */
         header {
-            background: var(--charcoal); padding: 15px 8%;
+            background: var(--charcoal); padding: 15px 5%;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 4px solid var(--safety-orange);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
-        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #444; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        .logo-btn { 
+            color: var(--safety-orange); border: 2.5px solid var(--safety-orange); 
+            padding: 8px 18px; text-decoration: none; font-weight: 700; 
+            font-size: 1.1rem; border-radius: 4px; 
+        }
+        .back-btn { 
+            color: white; text-decoration: none; font-weight: 600; 
+            font-size: 0.9rem; border: 1px solid #444; padding: 6px 15px; 
+            border-radius: 4px; transition: 0.3s; 
+        }
         .back-btn:hover { background: var(--safety-orange); color: #000; }
 
         /* --- Hero Section --- */
@@ -35,74 +43,79 @@
             height: 350px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
-        .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
+        .hero-sub h1 { font-size: 3rem; letter-spacing: 1px; }
         .hero-sub span { color: var(--safety-orange); }
 
         /* --- Content Container --- */
-        .detail-container { padding: 50px 8%; max-width: 1200px; margin: 0 auto; }
+        .detail-container { padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
         
         .description-box { 
-            background: white; padding: 35px; border-radius: 8px; 
+            background: white; padding: 40px; border-radius: 8px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
             margin-bottom: 50px;
         }
-        .description-box h2 { color: var(--charcoal); margin-bottom: 15px; }
+        .description-box h2 { color: var(--charcoal); margin-bottom: 15px; font-size: 2.2rem; }
 
-        /* --- Modern Service Cards (Epoxy Style) --- */
-        .service-section { margin-bottom: 40px; }
-        
-        .epoxy-card {
-            display: flex; background: white; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 30px;
-            transition: 0.4s ease; border: 1px solid #eee;
+        /* --- Modern Split Cards --- */
+        .service-section {
+            display: flex; background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-bottom: 40px;
+            min-height: 400px; transition: transform 0.3s ease;
         }
-        .epoxy-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .service-section:hover { transform: translateY(-5px); }
 
-        .epoxy-img { flex: 1; min-height: 300px; overflow: hidden; }
-        .epoxy-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .epoxy-card:hover .epoxy-img img { transform: scale(1.1); }
+        .service-text { flex: 1; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        .service-text h2 { color: var(--safety-orange); font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .service-text p { font-size: 1.1rem; color: #555; margin-bottom: 20px; }
 
-        .epoxy-info { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .epoxy-info h3 { color: var(--safety-orange); font-size: 1.8rem; margin-bottom: 15px; }
-        
-        .feature-tag { 
-            display: inline-block; background: #fff3e6; color: var(--safety-orange);
-            padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; 
-            font-weight: 700; margin-bottom: 10px; border: 1px solid var(--safety-orange);
+        .service-image { flex: 1; overflow: hidden; }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- Checkmark List --- */
+        .check-list { list-style: none; margin-top: 10px; }
+        .check-list li { 
+            display: flex; align-items: center; margin-bottom: 12px; 
+            font-weight: 700; font-size: 1.1rem; color: var(--charcoal); 
+        }
+        .check-list li::before { 
+            content: '✔'; color: var(--safety-orange); margin-right: 15px; 
+            font-size: 1.2rem; border: 2px solid var(--safety-orange); 
+            border-radius: 50%; width: 25px; height: 25px; 
+            display: flex; align-items: center; justify-content: center;
         }
 
-        /* --- Secondary Grid --- */
-        .grid-title { text-align: center; margin-bottom: 30px; }
-        .services-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; 
+        /* --- Technical Grid --- */
+        .grid-3 { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; margin-top: 40px; 
         }
-        .info-card {
-            background: var(--charcoal); color: white; padding: 30px; border-radius: 8px;
-            border-bottom: 5px solid var(--safety-orange); transition: 0.3s;
+        .small-card { 
+            background: var(--charcoal); color: white; padding: 30px; 
+            border-radius: 8px; border-bottom: 5px solid var(--safety-orange); 
         }
-        .info-card:hover { background: #222; transform: scale(1.02); }
-        .info-card h3 { font-size: 1.1rem; color: var(--safety-orange); }
+        .small-card h3 { color: var(--safety-orange); margin-bottom: 10px; font-size: 1.2rem; }
 
         /* --- CTA --- */
         .cta-box {
-            background: var(--charcoal); color: white; padding: 50px;
+            background: var(--charcoal); color: white; padding: 60px 20px;
             text-align: center; margin-top: 50px; border-radius: 12px;
             border-top: 6px solid var(--safety-orange);
         }
         .cta-btn {
             display: inline-block; background: var(--safety-orange); color: #000;
-            padding: 15px 35px; text-decoration: none; font-weight: 800;
-            text-transform: uppercase; border-radius: 4px; margin-top: 20px; transition: 0.3s;
+            padding: 16px 35px; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; border-radius: 4px; margin-top: 25px; transition: 0.3s;
         }
-        .cta-btn:hover { background: #ffaa44; transform: scale(1.05); }
+        .cta-btn:hover { background: #e67a00; transform: scale(1.05); }
 
-        footer { background: #000; color: #777; text-align: center; padding: 30px; font-size: 0.9rem; }
-
-        @media (max-width: 850px) {
-            .epoxy-card { flex-direction: column; }
-            .epoxy-img { min-height: 200px; }
-            .hero-sub h1 { font-size: 2rem; }
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .service-section { flex-direction: column; }
+            .service-image { height: 250px; order: -1; }
+            .hero-sub h1 { font-size: 2.2rem; }
         }
+
+        footer { background: #000; color: #888; text-align: center; padding: 30px; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -119,59 +132,63 @@
 <div class="detail-container">
     <div class="description-box">
         <h2>Advanced Structural Protection</h2>
-        <p>
-            Waterproofing systems are designed to protect concrete from the intrusion of liquids into or through concrete cracks. Hum <strong>Deep Civil Solutions</strong> mein advanced technology ka use karte hain taaki aapka structure saalo-saal surakshit rahe.
-        </p>
+        <p>Waterproofing systems are designed to protect concrete from the intrusion of liquids into or through concrete cracks and in some cases joints. Hum industrial standards ke mutabik best protection dete hain.</p>
     </div>
 
-    <div class="epoxy-card">
-        <div class="epoxy-img">
-            <img src="water_proffing5.jpg" alt="Waterproofing Treatment">
+    <div class="service-section">
+        <div class="service-text">
+            <h2>1. Acrylic & Polymer Coating</h2>
+            <p>Aapki building ko moisture aur cracks se bachane ke liye advanced acrylic layering ki jati hai.</p>
+            <ul class="check-list">
+                <li>Flexible Protection</li>
+                <li>Long Term Stability</li>
+                <li>No Shrinkage</li>
+            </ul>
         </div>
-        <div class="epoxy-info">
-            <span class="feature-tag">MOST POPULAR</span>
-            <h3>Acrylic & Polymer Treatment</h3>
-            <p>Flexible aur majboot coatings jo har tarah ke cracks ko seal karti hain. Yeh dhoop aur baarish dono se bachti hai.</p>
-        </div>
-    </div>
-
-    <div class="epoxy-card" style="flex-direction: row-reverse;">
-        <div class="epoxy-img">
-            <img src="water_proffing3.jpg" alt="Membrane Waterproofing">
-        </div>
-        <div class="epoxy-info">
-            <span class="feature-tag">HEAVY DUTY</span>
-            <h3>Liquid Applied Membrane</h3>
-            <p>High-quality membrane layer jo seamless protection deti hai. Industrial roofs aur terrace ke liye sabse best option.</p>
+        <div class="service-image">
+            <img src="water_proffing5.jpg" alt="Waterproofing Application">
         </div>
     </div>
 
-    <div class="grid-title"><h2>More <span>Solutions</span></h2></div>
-    
-    <div class="services-grid">
-        <div class="info-card">
+    <div class="service-section" style="flex-direction: row-reverse;">
+        <div class="service-text">
+            <h2>2. Liquid Applied Membrane</h2>
+            <p>Seamless aur joint-less water protection jo terrace aur heavy-duty areas ke liye sabse best hai.</p>
+            <ul class="check-list">
+                <li>Smooth Leveling</li>
+                <li>Professional Tools</li>
+                <li>Long Lasting Bond</li>
+            </ul>
+        </div>
+        <div class="service-image">
+            <img src="water_proffing3.jpg" alt="Membrane Work">
+        </div>
+    </div>
+
+    <div class="grid-3">
+        <div class="small-card">
             <h3>PU & Coal Tar Coating</h3>
-            <p>Chemical resistant aur heavy duty protection.</p>
+            <p>Industrial grade chemicals jo heavy structural walls ko seal karte hain.</p>
         </div>
-        <div class="info-card">
-            <h3>Food Grade Waterproofing</h3>
-            <p>Water tanks aur swimming pools ke liye safe solutions.</p>
+        <div class="small-card">
+            <h3>Food Grade Solutions</h3>
+            <p>Water tanks aur pools ke liye safe aur certified treatments.</p>
         </div>
-        <div class="info-card">
+        <div class="small-card">
             <h3>Injection Grouting</h3>
-            <p>Epoxy based pressure grouting cracks seal karne ke liye.</p>
+            <p>Deep cracks ko epoxy base grout se permanent seal kiya jata hai.</p>
         </div>
     </div>
 
     <div class="cta-box">
         <h2>Leakage Se Pareshan Hain?</h2>
-        <p>Expert team se muft salah lene ke liye niche click karein.</p>
+        <p>Humare experts se aaj hi muft salah lein aur apne structure ko majboot banayein.</p>
         <a href="https://wa.me/919824435362" class="cta-btn">Talk to an Expert</a>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 DEEP CIVIL SOLUTIONS | All Rights Reserved.
+    &copy; 2026 DEEP CIVIL SOLUTIONS | Rajkot, Gujarat
 </footer>
 
 </body>
