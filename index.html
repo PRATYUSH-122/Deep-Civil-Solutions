@@ -29,9 +29,21 @@
         h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: var(--light-bg); color: #222; line-height: 1.6; overflow-x: hidden; width: 100%; }
 
-        img { max-width: 100%; height: auto; display: block; }
+        /* --- ALL IMAGES EFFECT --- */
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: grayscale(20%);
+        }
+        img:hover {
+            transform: scale(1.03);
+            filter: grayscale(0%) brightness(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
 
-        /* --- HEADER & MOBILE NAV FIX --- */
+        /* --- HEADER & MOBILE NAV --- */
         header {
             background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
@@ -42,13 +54,13 @@
         
         nav { width: auto; }
         nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: var(--safety-orange); }
 
-        /* Mobile specific Header */
         @media (max-width: 992px) {
             header { padding: 10px 5%; justify-content: center; flex-direction: column; }
             .logo-btn { font-size: 1.1rem; width: 100%; margin-bottom: 5px; }
-            nav { width: 100%; display: block !important; } /* Hidden nahi hoga */
+            nav { width: 100%; display: block !important; } 
             nav ul { justify-content: center; gap: 10px; }
             nav ul li a { font-size: 0.7rem; }
         }
@@ -66,39 +78,72 @@
             box-shadow: 4px 4px 0px var(--charcoal); font-size: 1.1rem;
         }
 
-        /* About & Method Grids */
+        /* About & Method */
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: flex-start; }
-        .work-method-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; }
+        .work-method-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px; border-bottom: 5px solid var(--safety-orange); }
         
         @media (max-width: 768px) {
             .about-grid, .work-method-container { grid-template-columns: 1fr; }
             .section-padding { padding: 40px 5%; }
         }
 
-        /* --- SPECIALIZED SERVICES FIX (Image_7ad504 fix) --- */
+        /* --- SERVICES --- */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .service-box { 
             background: #fff; border-left: 5px solid var(--safety-orange); 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer;
             display: flex; flex-direction: column; overflow: hidden;
         }
+        .service-box:hover { transform: translateY(-5px); border-left-width: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .service-content { padding: 20px; position: relative; z-index: 2; background: #fff; }
 
-        /* Client Grid Fix */
+        /* --- CLIENTS LIGHT EFFECT --- */
         .clients-section { background: var(--charcoal); color: white; padding: 80px 8%; }
         .client-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+        
+        .client-item { 
+            background: #262626; padding: 15px; border-left: 4px solid var(--safety-orange); 
+            font-size: 0.82rem; position: relative; overflow: hidden; transition: 0.3s;
+        }
+        /* Shimmering Light Effect */
+        .client-item::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,136,0,0.1), transparent);
+            transition: all 0.6s;
+        }
+        .client-item:hover::before { left: 100%; transition: 0.6s; }
+        .client-item:hover { background: #333; color: var(--safety-orange); }
+
         @media (max-width: 768px) { .client-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .client-grid { grid-template-columns: 1fr; } }
-        
-        .client-item { background: #262626; padding: 15px; border-left: 4px solid var(--safety-orange); font-size: 0.82rem; }
 
-        /* Contact Fix */
+        /* --- CONTACT IMPROVED --- */
         .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
-        /* Widgets */
-        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--whatsapp-green); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; }
-        #bot-popup { position: fixed; bottom: 100px; right: 30px; width: 320px; background: #fff; border-radius: 15px; z-index: 2000; border-top: 6px solid var(--safety-orange); display: none; flex-direction: column; }
-        @media (max-width: 768px) { #bot-popup { width: 90%; right: 5%; bottom: 85px; } }
+        .contact-info h4 { color: var(--safety-orange); margin-bottom: 5px; font-size: 1.2rem; }
+        .contact-info p { margin-bottom: 20px; font-weight: 500; }
+        .email-link { color: var(--charcoal); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--safety-orange); }
+
+        /* --- WHATSAPP LIGHTING EFFECT --- */
+        .chat-widget { 
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000; 
+            background: var(--whatsapp-green); color: white; padding: 12px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse-light 2s infinite; /* High-Dim Lighting */
+        }
+        @keyframes pulse-light {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); filter: brightness(1); }
+            50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); filter: brightness(1.2); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); filter: brightness(1); }
+        }
+
+        .submit-btn {
+            background: var(--safety-orange); color: #000; border: none; padding: 18px; 
+            font-weight: 800; width: 100%; cursor: pointer; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .submit-btn:hover { background: #e67a00; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,136,0,0.3); }
+
     </style>
 </head>
 <body>
@@ -121,10 +166,10 @@
         <div class="about-grid">
             <div class="about-text">
                 <div class="experience-tag">ESTABLISHED SINCE 2015</div>
-                <img src="google_image1.0.jpeg" style="width:100%; border-radius:4px; margin-bottom:20px;">
+                <img src="google_image1.0.jpeg" alt="Deep Civil Office" style="width:100%; border-radius:4px; margin-bottom:20px;">
                 <p>Since 2015, <strong>Deep Civil Solutions</strong> is engaged in providing various kind of civil construction services that include civil construction work, civil engineering services & infrastructure development services & interior designing.</p>
                 <p>Further, we provide one stop platform to solve problems in construction field such as epoxy flooring, epoxy coating, PU flooring, PU coating, all types of water proofing, structure strengthening, floor densification, diamond concrete cutting, coating for metal and concrete structures.</p>
-                <div style="background: #e9ecef; padding: 20px; border-left: 5px solid var(--charcoal); font-style: italic; font-weight: 600;">
+                <div style="background: #e9ecef; padding: 20px; border-left: 5px solid var(--charcoal); font-style: italic; font-weight: 600; margin-top:15px;">
                     "We only employ fully qualified, experienced industrial painters to undertake our projects. This helps us to maintain our well-earned reputation."
                 </div>
             </div>
@@ -156,7 +201,7 @@
                     <li>» No obligation, free quotations</li>
                 </ul>
             </div>
-            <img src="industrial_surface_prepration.jpg" style="border-radius:8px; border-bottom:5px solid var(--safety-orange);">
+            <img src="industrial_surface_prepration.jpg" alt="Surface Preparation" style="border-radius:8px; border-bottom:5px solid var(--safety-orange);">
         </div>
     </section>
 
@@ -259,21 +304,24 @@
             <div class="contact-info">
                 <h4>📍 ADDRESS</h4>
                 <p>305, Heera Panna Complex,<br>DR. Yagnik Road, Rajkot, Gujarat.</p>
-                <br>
+                
+                <h4>✉ EMAIL</h4>
+                <p><a href="mailto:deepcivilsolution@gmail.com" class="email-link">abhishek.teamdcs@gmail.com</a></p>
+
                 <h4>📞 CONTACT</h4>
                 <p>+91 98244 35362<br>+91 99241 29182</p>
             </div>
-            <div style="background:white; padding:40px; border-top:8px solid var(--safety-orange);">
+            <div style="background:white; padding:40px; border-top:8px solid var(--safety-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <form id="enquiryForm">
-                    <input type="text" id="fullName" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd;" required>
-                    <textarea id="requirement" placeholder="Your Requirement" style="width:100%; padding:15px; height:110px; border:1px solid #ddd; margin-bottom:15px;" required></textarea>
-                    <button type="button" onclick="sendWhatsappEnquiry()" class="submit-btn" style="background:var(--safety-orange); color:#000; border:none; padding:18px; font-weight:800; width:100%; cursor:pointer;">Send Enquiry Now</button>
+                    <input type="text" id="fullName" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:4px;" required>
+                    <textarea id="requirement" placeholder="Your Requirement (Service Type, Area, etc.)" style="width:100%; padding:15px; height:110px; border:1px solid #ddd; margin-bottom:15px; border-radius:4px;" required></textarea>
+                    <button type="button" onclick="sendWhatsappEnquiry()" class="submit-btn">Send Enquiry via WhatsApp</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/919824435362" class="chat-widget" target="_blank">Whatsapp Contact</a>
+    <a href="https://wa.me/919824435362" class="chat-widget" target="_blank">💬 WhatsApp Contact</a>
 
     <script>
         function sendWhatsappEnquiry() {
@@ -283,7 +331,6 @@
             const message = "Hello Deep Civil Solutions,%0a*New Website Enquiry*%0aName: " + name + "%0aRequirement: " + req;
             window.open("https://wa.me/919824435362?text=" + message, '_blank');
         }
-        setTimeout(() => { document.getElementById('bot-popup').style.display = 'flex'; }, 3000);
     </script>
 </body>
 </html>
