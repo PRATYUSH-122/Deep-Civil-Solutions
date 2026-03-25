@@ -15,7 +15,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        body { background: var(--light-bg); color: #333; line-height: 1.6; }
+        body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
 
         /* --- Header --- */
         header {
@@ -24,73 +24,86 @@
             border-bottom: 4px solid var(--safety-orange);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; border-radius: 4px; text-align: center; }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 6px 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; border-radius: 4px; }
         .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 6px 12px; border-radius: 4px; }
 
-        /* --- Hero --- */
+        /* --- Hero with Shine Effect --- */
         .hero-sub {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('water_proffing2.jpg'); 
             background-size: cover; background-position: center;
             height: 250px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 6px solid var(--safety-orange);
         }
-        .hero-sub h1 { font-size: 2.2rem; }
+        .hero-sub h1 { 
+            font-size: 2.5rem; 
+            background: linear-gradient(90deg, #fff, var(--safety-orange), #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
 
         /* --- Container --- */
         .detail-container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; }
-        
-        .description-box { 
-            background: white; padding: 25px; border-radius: 8px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid var(--safety-orange);
-            margin-bottom: 30px;
-        }
 
-        /* --- Improved Service Cards (Mobile Optimized) --- */
-        .service-section {
-            display: flex; flex-direction: column; /* Mobile default: column */
+        /* --- Service Cards with Effects --- */
+        .special-card {
+            display: flex; flex-direction: column; 
             background: white; border-radius: 12px; overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 30px;
+            transition: all 0.4s ease; border: 1px solid #eee;
         }
 
-        .service-image { width: 100%; height: 250px; }
-        .service-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        .service-text { padding: 30px 20px; }
-        .service-text h2 { color: var(--safety-orange); font-size: 1.6rem; margin-bottom: 15px; }
-
-        /* --- Checkmark List --- */
-        .check-list { list-style: none; }
-        .check-list li { display: flex; align-items: center; margin-bottom: 10px; font-weight: 700; font-size: 1rem; }
-        .check-list li::before { 
-            content: '✔'; color: var(--safety-orange); margin-right: 12px; 
-            font-weight: 900; border: 2px solid var(--safety-orange); 
-            border-radius: 50%; width: 22px; height: 22px; 
-            display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+        .special-img { width: 100%; height: 250px; overflow: hidden; }
+        .special-img img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 0.6s ease;
         }
+
+        .special-info { padding: 30px 20px; }
+        .special-info h3 { color: var(--safety-orange); font-size: 1.6rem; margin-bottom: 12px; transition: 0.3s; }
+
+        /* Feature List Slide Effect */
+        .feature-list { list-style: none; }
+        .feature-list li { 
+            margin-bottom: 8px; font-weight: 700; display: flex; align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .feature-list li::before { 
+            content: '✔'; color: var(--safety-orange); margin-right: 10px;
+            border: 2px solid var(--safety-orange); border-radius: 50%;
+            width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem;
+        }
+
+        /* --- HOVER EFFECTS --- */
+        .special-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); border-color: var(--safety-orange); }
+        .special-card:hover .special-img img { transform: scale(1.1); }
+        .special-card:hover .special-info h3 { transform: translateX(5px); }
+        .special-card:hover .feature-list li { transform: translateX(10px); }
 
         /* --- Technical Grid --- */
-        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .small-card { background: var(--charcoal); color: white; padding: 20px; border-radius: 8px; border-bottom: 4px solid var(--safety-orange); }
-        .small-card h3 { color: var(--safety-orange); font-size: 1.1rem; margin-bottom: 5px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+        .info-card { background: var(--charcoal); color: white; padding: 25px; border-radius: 8px; border-bottom: 4px solid var(--safety-orange); transition: 0.3s; }
+        .info-card:hover { background: #222; transform: scale(1.02); }
+        .info-card h3 { color: var(--safety-orange); margin-bottom: 8px; }
 
-        /* --- CTA --- */
-        .cta-box { background: var(--charcoal); color: white; padding: 40px 20px; text-align: center; border-radius: 12px; margin-top: 30px; }
-        .cta-btn { display: inline-block; background: var(--safety-orange); color: #000; padding: 14px 30px; text-decoration: none; font-weight: 800; border-radius: 4px; margin-top: 20px; }
-
-        /* --- Desktop View Adjustment --- */
+        /* --- Desktop Responsive --- */
         @media (min-width: 900px) {
-            header { padding: 15px 8%; }
-            .logo-btn { font-size: 1.1rem; }
             .hero-sub { height: 350px; }
             .hero-sub h1 { font-size: 3.5rem; }
-            .service-section { flex-direction: row; min-height: 380px; }
-            .service-section.reverse { flex-direction: row-reverse; }
-            .service-image { flex: 1; height: auto; }
-            .service-text { flex: 1.2; padding: 50px; }
+            .special-card { flex-direction: row; height: 350px; }
+            .special-card.reverse { flex-direction: row-reverse; }
+            .special-img { flex: 1; height: auto; }
+            .special-info { flex: 1.2; padding: 50px; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
         }
 
-        footer { background: #000; color: #888; text-align: center; padding: 25px; margin-top: 40px; font-size: 0.8rem; }
+        /* --- CTA --- */
+        .cta-box { background: var(--charcoal); color: white; padding: 50px 20px; text-align: center; border-radius: 12px; margin-top: 40px; }
+        .cta-btn { display: inline-block; background: var(--safety-orange); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 800; border-radius: 4px; margin-top: 25px; }
+
+        footer { background: #000; color: #888; text-align: center; padding: 25px; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -107,51 +120,51 @@
 <div class="detail-container">
     <div class="description-box">
         <h2>Advanced Structural Protection</h2>
-        <p>Waterproofing systems are designed to protect concrete from the intrusion of liquids. Hum industrial standards ke mutabik best protection dete hain.</p>
+        <p>Waterproofing systems are designed to protect concrete from the intrusion of liquids. Deep Civil Solutions aapko deta hai 100% leakage-free guarantee.</p>
     </div>
 
-    <div class="service-section">
-        <div class="service-image">
-            <img src="water_proffing5.jpg" alt="Waterproofing Application">
+    <div class="special-card">
+        <div class="special-img">
+            <img src="water_proffing5.jpg" alt="Acrylic Treatment">
         </div>
-        <div class="service-text">
-            <h2>1. Acrylic & Polymer Coating</h2>
-            <p>Aapki building ko moisture aur cracks se bachane ke liye advanced layering ki jati hai.</p>
-            <ul class="check-list">
+        <div class="special-info">
+            <h3>Acrylic & Polymer Coating</h3>
+            <p>High-quality flexible polymers jo cracks ko seal karke pani ko rok dete hain.</p>
+            <ul class="feature-list">
                 <li>Flexible Protection</li>
-                <li>Long Term Stability</li>
-                <li>No Shrinkage</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="service-section reverse">
-        <div class="service-image">
-            <img src="water_proffing3.jpg" alt="Membrane Work">
-        </div>
-        <div class="service-text">
-            <h2>2. Liquid Applied Membrane</h2>
-            <p>Seamless aur joint-less water protection jo terrace ke liye sabse best hai.</p>
-            <ul class="check-list">
-                <li>Smooth Leveling</li>
-                <li>Professional Tools</li>
+                <li>UV Resistant Layer</li>
                 <li>Long Lasting Bond</li>
             </ul>
         </div>
     </div>
 
+    <div class="special-card reverse">
+        <div class="special-img">
+            <img src="water_proffing3.jpg" alt="Membrane Work">
+        </div>
+        <div class="special-info">
+            <h3>Liquid Applied Membrane</h3>
+            <p>Seamless aur joint-less water protection jo terrace aur roofs ke liye best hai.</p>
+            <ul class="feature-list">
+                <li>Heavy Duty Strength</li>
+                <li>Zero Joint Leaks</li>
+                <li>Industrial Grade</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="grid-3">
-        <div class="small-card">
-            <h3>PU & Coal Tar Coating</h3>
-            <p>Industrial grade chemicals jo heavy walls ko seal karte hain.</p>
+        <div class="info-card">
+            <h3>PU & Coal Tar</h3>
+            <p>Industrial chemical coatings jo heavy walls ko seal karte hain.</p>
         </div>
-        <div class="small-card">
+        <div class="info-card">
             <h3>Food Grade Solutions</h3>
-            <p>Water tanks ke liye safe aur certified treatments.</p>
+            <p>Water tanks aur pools ke liye safe treatment.</p>
         </div>
-        <div class="small-card">
+        <div class="info-card">
             <h3>Injection Grouting</h3>
-            <p>Deep cracks ko permanent seal kiya jata hai.</p>
+            <p>Deep cracks ko permanent seal karne ki technology.</p>
         </div>
     </div>
 
