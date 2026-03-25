@@ -11,14 +11,34 @@
             --charcoal: #1a1a1a;
             --white: #ffffff;
             --light-bg: #f4f4f4;
-            --deep-blue: #1e3a8a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- Header & Hero --- */
+        /* --- Shine Animation Core --- */
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* Class for Dark backgrounds (White-Orange-White shine) */
+        .shine-light {
+            background: linear-gradient(90deg, #fff, var(--safety-orange), #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        /* Class for Light backgrounds (Dark-Orange-Dark shine) */
+        .shine-dark {
+            background: linear-gradient(90deg, #222, var(--safety-orange), #222);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        /* --- Header --- */
         header {
             background: var(--charcoal); padding: 15px 5%;
             display: flex; justify-content: space-between; align-items: center;
@@ -28,16 +48,23 @@
         .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 6px 12px; text-decoration: none; font-weight: 700; font-size: 1rem; border-radius: 4px; }
         .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 5px 10px; border-radius: 4px; }
 
+        /* --- Hero --- */
         .hero-sub {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('epoxy_hero_bg.jpg'); 
             background-size: cover; background-position: center;
             height: 250px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
-        .hero-sub h1 { font-size: 2.5rem; letter-spacing: 1px; padding: 0 10px; }
-        .hero-sub span { color: var(--safety-orange); }
+        .hero-sub h1 { font-size: 2.5rem; letter-spacing: 1px; }
+        .hero-sub h1 span { 
+            background: linear-gradient(90deg, #fff, var(--safety-orange), #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
 
-        /* --- Content Section --- */
+        /* --- Content Container --- */
         .detail-container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
         
         .description-box { 
@@ -45,92 +72,52 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
             margin-bottom: 40px;
         }
-        .description-box h2 { color: var(--charcoal); margin-bottom: 15px; font-size: 1.8rem; }
+        .description-box h2 { font-size: 1.8rem; margin-bottom: 15px; }
 
-        /* --- SPECIALIZED SERVICE SECTION WITH EFFECTS --- */
-        .special-service-section { margin-bottom: 40px; }
+        /* --- Special Cards --- */
         .special-card {
             display: flex; background: white; border-radius: 12px; overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #eee; margin-bottom: 30px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: 0.4s ease;
         }
-        
-        .special-img { flex: 1; min-height: 350px; overflow: hidden; position: relative; }
-        .special-img img { 
-            width: 100%; height: 100%; object-fit: cover; display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
-        }
-        
+        .special-img { flex: 1; min-height: 300px; overflow: hidden; }
+        .special-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
         .special-info { flex: 1.2; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .special-info h3 { 
-            color: var(--safety-orange); font-size: 1.8rem; margin-bottom: 15px; 
-            border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;
-            transition: transform 0.4s ease;
-        }
-        .special-info p { transition: opacity 0.4s ease, transform 0.4s ease; }
-        
+        .special-info h3 { font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+
         .feature-list { list-style: none; }
-        .feature-list li { 
-            margin-bottom: 10px; display: flex; align-items: center; 
-            font-weight: 600; color: var(--charcoal);
-            transition: transform 0.4s ease;
-        }
+        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; font-weight: 600; transition: 0.3s; }
         .feature-list li::before { content: '✔'; color: var(--safety-orange); margin-right: 10px; }
 
-        /* --- HOVER EFFECTS TRIGGER --- */
-        .special-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
-        .special-card:hover .special-img img { transform: scale(1.1) rotate(1deg); filter: blur(2px) grayscale(20%); }
-        .special-card:hover .special-info h3 { transform: translateX(10px); }
-        .special-card:hover .special-info p { transform: translateY(5px); opacity: 0.8; }
-        .special-card:hover .feature-list li { transform: translateX(15px); }
-
-        /* --- MOBILE RESPONSIVE FIX (CRITICAL) --- */
-        @media (max-width: 992px) {
-            .special-card, .special-card[style*="flex-direction: row-reverse"] { 
-                flex-direction: column !important; 
-            }
-            .special-img { min-height: 250px; width: 100%; }
-            .special-info { padding: 25px; width: 100%; }
-            .special-info h3 { font-size: 1.5rem; }
-            /* Mobile par zoom effect thoda kam taaki jitter na ho */
-            .special-card:hover .special-img img { transform: scale(1.05); filter: none; }
-        }
+        /* Hover Effects */
+        .special-card:hover { transform: translateY(-5px); }
+        .special-card:hover .special-img img { transform: scale(1.1); }
+        .special-card:hover .feature-list li { transform: translateX(10px); }
 
         /* --- Services Grid --- */
         .services-title { text-align: center; margin-bottom: 30px; }
         .services-title h2 { font-size: 2rem; position: relative; display: inline-block; padding-bottom: 10px; }
         .services-title h2::after { content: ''; width: 50px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 15px; 
-        }
-        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .service-card {
             background: var(--charcoal); color: white; padding: 20px;
             border-radius: 4px; border-bottom: 4px solid var(--safety-orange);
-            min-height: 120px; display: flex; align-items: center;
-            transition: 0.3s;
+            min-height: 100px; display: flex; align-items: center; transition: 0.3s;
         }
-        .service-card:hover { background: #222; transform: scale(1.02); }
-        .service-card h3 { color: var(--safety-orange); font-size: 1rem; }
+        .service-card:hover { transform: scale(1.02); background: #222; }
 
-        /* --- CTA Section --- */
-        .cta-box {
-            background: var(--charcoal); color: white; padding: 40px 20px;
-            text-align: center; margin-top: 40px; border-radius: 8px;
-            border-top: 6px solid var(--safety-orange);
-        }
-        .cta-btn {
-            display: inline-block; background: var(--safety-orange); color: #000;
-            padding: 14px 25px; text-decoration: none; font-weight: 800;
-            text-transform: uppercase; border-radius: 4px; margin-top: 20px;
-            transition: 0.3s;
-        }
-        .cta-btn:hover { background: #ffaa44; transform: translateY(-3px); }
+        /* --- CTA --- */
+        .cta-box { background: var(--charcoal); color: white; padding: 50px 20px; text-align: center; border-radius: 8px; border-top: 6px solid var(--safety-orange); margin-top: 40px; }
+        .cta-btn { display: inline-block; background: var(--safety-orange); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 800; border-radius: 4px; margin-top: 20px; }
 
-        footer { background: #000; color: #666; text-align: center; padding: 20px; font-size: 0.8rem; }
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .special-card { flex-direction: column !important; }
+            .special-img { min-height: 200px; }
+        }
+
+        footer { background: #000; color: #555; text-align: center; padding: 20px; font-size: 0.8rem; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -141,88 +128,63 @@
 </header>
 
 <section class="hero-sub">
-    <h1>Epoxy <span>Flooring</span> & Coating</h1>
+    <h1>Epoxy <span class="shine-light">Flooring</span> & Coating</h1>
 </section>
 
 <div class="detail-container">
     <div class="description-box">
-        <h2>Expert Industrial Protection</h2>
-        <p>Industrial plants ke floors ka upyog sabse zyada hota hai, isliye unki suraksha ke liye epoxy, polyurethane concrete aur anya aggregate-filled flooring systems ka upyog kiya jata hai. Hum prabhavshali Mortar floor coatings pradan karte hain.</p>
+        <h2 class="shine-dark">Expert Industrial Protection</h2>
+        <p>Industrial plants ke floors ka upyog sabse zyada hota hai. Hum prabhavshali Mortar floor coatings pradan karte hain.</p>
     </div>
 
     <div class="services-title">
-        <h2>Specialized <span>Services</span></h2>
+        <h2 class="shine-dark">Specialized Services</h2>
     </div>
 
     <section class="special-service-section">
         <div class="special-card">
-            <div class="special-img">
-                <img src="epoxy_flooring.jpg" alt="Industrial Epoxy Flooring">
-            </div>
+            <div class="special-img"><img src="epoxy_flooring.jpg" alt="Flooring"></div>
             <div class="special-info">
-                <h3>High-Gloss Industrial Finish</h3>
-                <p>Workspace ko ek naya aur saaf look deti hai, jo chemical spill aur heavy machinery ke liye perfect hai.</p>
+                <h3 class="shine-dark">High-Gloss Industrial Finish</h3>
+                <p>Workspace ko ek naya aur saaf look deti hai.</p>
                 <ul class="feature-list">
                     <li>Chemical Resistance</li>
-                    <li>Easy to Clean Surface</li>
                     <li>Highly Durable</li>
                 </ul>
             </div>
         </div>
 
         <div class="special-card" style="flex-direction: row-reverse;">
-            <div class="special-img">
-                <img src="epoxy_flooring1.jpg" alt="Epoxy Application Process">
-            </div>
+            <div class="special-img"><img src="epoxy_flooring1.jpg" alt="Process"></div>
             <div class="special-info">
-                <h3>Professional Application</h3>
-                <p>Expert team ke dwara surface preparation aur layering ki jati hai taaki floor ki longevity bani rahe.</p>
+                <h3 class="shine-dark">Professional Application</h3>
+                <p>Expert team ke dwara surface preparation ki jati hai.</p>
                 <ul class="feature-list">
                     <li>Smooth Leveling</li>
-                    <li>Professional Tools</li>
                     <li>Long Lasting Bond</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="special-card">
-            <div class="special-img">
-                <img src="epoxy_flooring2.jpg" alt="Heavy Duty Flooring">
-            </div>
-            <div class="special-info">
-                <h3>Heavy Duty Mortar System</h3>
-                <p>Factory aur warehouses ke liye vishesh roop se design kiya gaya mortar system jo heavy load sahta hai.</p>
-                <ul class="feature-list">
-                    <li>Impact Resistance</li>
-                    <li>Anti-Slip Texture</li>
-                    <li>Industrial Strength</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <div class="services-title">
-        <h2>Our Key <span>Offerings</span></h2>
+        <h2 class="shine-dark">Our Key Offerings</h2>
     </div>
 
     <div class="services-grid">
-        <div class="service-card"><h3>Self-leveling epoxy floor system</h3></div>
-        <div class="service-card"><h3>Heavy duty epoxy mortar floor system</h3></div>
-        <div class="service-card"><h3>Solvent based resin electrically conductive coating</h3></div>
-        <div class="service-card"><h3>Polyurethane floor mortar system</h3></div>
-        <div class="service-card"><h3>Solvent based acrylic system</h3></div>
-        <div class="service-card"><h3>Solvent based epoxy floor coating</h3></div>
+        <div class="service-card"><h3 class="shine-light">Self-leveling epoxy system</h3></div>
+        <div class="service-card"><h3 class="shine-light">Heavy duty mortar floor</h3></div>
+        <div class="service-card"><h3 class="shine-light">Polyurethane floor mortar</h3></div>
+        <div class="service-card"><h3 class="shine-light">Solvent based acrylic system</h3></div>
     </div>
 
     <div class="cta-box">
-        <h2>Ready for a Floor Upgrade?</h2>
+        <h2 class="shine-light">Ready for a Floor Upgrade?</h2>
         <a href="https://wa.me/919824435362" class="cta-btn">TALK TO AN EXPERT</a>
     </div>
 </div>
 
-<footer>
-    &copy; 2026 DEEP CIVIL SOLUTIONS | Specialized Flooring Division
-</footer>
+<footer>&copy; 2026 DEEP CIVIL SOLUTIONS | Rajkot, Gujarat</footer>
 
 </body>
 </html>
