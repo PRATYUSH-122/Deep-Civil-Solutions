@@ -49,6 +49,27 @@
         .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
         .description-box p { font-size: 1.1rem; color: #444; text-align: justify; }
 
+        /* --- SPECIALIZED SERVICE SECTION --- */
+        .special-service-section { margin-bottom: 60px; }
+        .special-card {
+            display: flex; background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #eee; margin-bottom: 40px;
+        }
+        .special-img { flex: 1; min-height: 350px; overflow: hidden; }
+        .special-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .special-card:hover .special-img img { transform: scale(1.1); }
+        .special-info { flex: 1.2; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .special-info h3 { color: var(--safety-orange); font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .special-info p { color: #555; font-size: 1.05rem; margin-bottom: 20px; }
+        .feature-list { list-style: none; }
+        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; font-weight: 600; color: var(--charcoal); }
+        .feature-list li::before { content: '✔'; color: var(--safety-orange); margin-right: 10px; font-size: 1.2rem; }
+
+        @media (max-width: 992px) {
+            .special-card { flex-direction: column; }
+            .special-img { min-height: 250px; }
+        }
+
         /* --- Services/Applications Grid --- */
         .services-title { text-align: center; margin-bottom: 40px; }
         .services-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
@@ -119,6 +140,57 @@
             Floor Densification kisi bhi facility ke liye ek practical, decorative aur economical floor system hai. Ye tezi se badhne wala product banta ja raha hai. Floor densification ek multi-step mechanical grinding aur polishing process hai, jisme industrial diamonds aur liquid hardener ka upyog kiya jata hai taaki floor ko level, densify, aur polish kiya ja sake. Ant mein, ye floor surface ko andar se puri tarah seal kar deta hai.
         </p>
     </div>
+
+    <div class="services-title">
+        <h2>Specilized <span>Services</span></h2>
+    </div>
+
+    <section class="special-service-section">
+        <div class="special-card">
+            <div class="special-img">
+                <img src="floor densification.jpg" alt="Mechanical Grinding Process">
+            </div>
+            <div class="special-info">
+                <h3>Mechanical Polishing</h3>
+                <p>Industrial diamonds ka upyog karke hum floor ko level aur smooth banate hain, jisse surface par ek mirror-like finish aati hai.</p>
+                <ul class="feature-list">
+                    <li>High Shine Finish</li>
+                    <li>Level Ground Surface</li>
+                    <li>Diamond Grinding</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="special-card" style="flex-direction: row-reverse;">
+            <div class="special-img">
+                <img src="Floor Densification1.jpg" alt="Floor Hardening">
+            </div>
+            <div class="special-info">
+                <h3>Liquid Hardening & Sealing</h3>
+                <p>Liquid hardener floor ke pores mein jakar use densify karta hai, jisse floor ki life badh jaati hai aur dust-free surface milti hai.</p>
+                <ul class="feature-list">
+                    <li>Dust-Proof Technology</li>
+                    <li>Internal Sealing</li>
+                    <li>Abrasion Resistance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="special-card">
+            <div class="special-img">
+                <img src="Floor Densification2.jpg" alt="Final Polished Floor">
+            </div>
+            <div class="special-info">
+                <h3>Economical Floor System</h3>
+                <p>Ye floor system warehouses aur factories ke liye sabse economical aur low maintenance option hai jo saalon tak chalta hai.</p>
+                <ul class="feature-list">
+                    <li>Low Maintenance</li>
+                    <li>Cost-Effective</li>
+                    <li>Heavy Load Bearing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <div class="services-title">
         <h2>Key <span>Applications</span></h2>

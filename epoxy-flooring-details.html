@@ -49,6 +49,27 @@
         .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
         .description-box p { font-size: 1.1rem; color: #444; text-align: justify; }
 
+        /* --- SPECIALIZED SERVICE SECTION (WATERPROOFING STYLE) --- */
+        .special-service-section { margin-bottom: 60px; }
+        .special-card {
+            display: flex; background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #eee; margin-bottom: 40px;
+        }
+        .special-img { flex: 1; min-height: 350px; overflow: hidden; }
+        .special-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .special-card:hover .special-img img { transform: scale(1.1); }
+        .special-info { flex: 1.2; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .special-info h3 { color: var(--safety-orange); font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .special-info p { color: #555; font-size: 1.05rem; margin-bottom: 20px; }
+        .feature-list { list-style: none; }
+        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; font-weight: 600; color: var(--charcoal); }
+        .feature-list li::before { content: '✔'; color: var(--safety-orange); margin-right: 10px; font-size: 1.2rem; }
+
+        @media (max-width: 992px) {
+            .special-card { flex-direction: column; }
+            .special-img { min-height: 250px; }
+        }
+
         /* --- Services Grid --- */
         .services-title { text-align: center; margin-bottom: 40px; }
         .services-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
@@ -60,7 +81,6 @@
             gap: 20px; 
         }
         
-        /* FIXED CLASS NAME HERE */
         .service-card {
             background: var(--charcoal); color: white; padding: 25px;
             border-radius: 4px; transition: 0.4s ease; position: relative;
@@ -122,34 +142,69 @@
     </div>
 
     <div class="services-title">
+        <h2>Specilized <span>Services</span></h2>
+    </div>
+
+    <section class="special-service-section">
+        <div class="special-card">
+            <div class="special-img">
+                <img src="epoxy_flooring.jpg" alt="Industrial Epoxy Flooring">
+            </div>
+            <div class="special-info">
+                <h3>High-Gloss Industrial Finish</h3>
+                <p>Hamari high-gloss epoxy coating aapke workspace ko ek naya aur saaf look deti hai, jo chemical spill aur heavy machinery ke liye perfect hai.</p>
+                <ul class="feature-list">
+                    <li>Chemical Resistance</li>
+                    <li>Easy to Clean Surface</li>
+                    <li>Highly Durable</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="special-card" style="flex-direction: row-reverse;">
+            <div class="special-img">
+                <img src="epoxy_flooring1.jpg" alt="Epoxy Application Process">
+            </div>
+            <div class="special-info">
+                <h3>Professional Application</h3>
+                <p>Expert team ke dwara surface preparation aur layering ki jati hai taaki floor ki longevity bani rahe aur koi cracks na aayein.</p>
+                <ul class="feature-list">
+                    <li>Smooth Leveling</li>
+                    <li>Professional Tools</li>
+                    <li>Long Lasting Bond</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="special-card">
+            <div class="special-img">
+                <img src="epoxy_flooring2.jpg" alt="Heavy Duty Flooring">
+            </div>
+            <div class="special-info">
+                <h3>Heavy Duty Mortar System</h3>
+                <p>Factory aur warehouses ke liye vishesh roop se design kiya gaya mortar system jo sabse zyada load sahne ki kshamta rakhta hai.</p>
+                <ul class="feature-list">
+                    <li>Impact Resistance</li>
+                    <li>Anti-Slip Texture</li>
+                    <li>Industrial Strength</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="services-title">
         <h2>Our Key <span>Offerings</span></h2>
     </div>
 
     <div class="services-grid">
-        <div class="service-card">
-            <h3>Self-leveling epoxy floor system</h3>
-        </div>
-        <div class="service-card">
-            <h3>Heavy duty epoxy mortar floor system</h3>
-        </div>
-        <div class="service-card">
-            <h3>Solvent based resin electrically conductive coating</h3>
-        </div>
-        <div class="service-card">
-            <h3>Polyurethane medium/heavy duty floor mortar system</h3>
-        </div>
-        <div class="service-card">
-            <h3>Solvent based acrylic system</h3>
-        </div>
-        <div class="service-card">
-            <h3>Solvent based epoxy floor coating</h3>
-        </div>
-        <div class="service-card">
-            <h3>Solvent free anti static floor coating</h3>
-        </div>
-        <div class="service-card">
-            <h3>Multi Leveling Epoxy Floor System</h3>
-        </div>
+        <div class="service-card"><h3>Self-leveling epoxy floor system</h3></div>
+        <div class="service-card"><h3>Heavy duty epoxy mortar floor system</h3></div>
+        <div class="service-card"><h3>Solvent based resin electrically conductive coating</h3></div>
+        <div class="service-card"><h3>Polyurethane medium/heavy duty floor mortar system</h3></div>
+        <div class="service-card"><h3>Solvent based acrylic system</h3></div>
+        <div class="service-card"><h3>Solvent based epoxy floor coating</h3></div>
+        <div class="service-card"><h3>Solvent free anti static floor coating</h3></div>
+        <div class="service-card"><h3>Multi Leveling Epoxy Floor System</h3></div>
     </div>
 
     <div class="cta-box">

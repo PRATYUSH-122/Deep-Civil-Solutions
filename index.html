@@ -160,9 +160,21 @@
         
         footer { background: #000; color: #666; text-align: center; padding: 40px; font-size: 0.9rem; }
         
+        /* --- ADDED RESPONSIVE CSS (Nothing Else Changed) --- */
         @media (max-width: 992px) { 
             .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; } 
-            header { justify-content: center; }
+            header { justify-content: center; text-align: center; padding: 15px 5%; }
+            nav ul { margin-top: 10px; }
+        }
+        @media (max-width: 768px) {
+            .section-padding { padding: 40px 5%; }
+            .brand-flex { flex-direction: column; }
+            #bot-popup { width: 90%; right: 5%; bottom: 85px; }
+            .chat-widget { bottom: 20px; right: 20px; }
+            .client-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .client-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -343,10 +355,10 @@
             <div class="client-item">Vadilal Ind Limited - Padra</div>
             <div class="client-item">Whole Foods - Vadodara</div>
             <div class="client-item">Finecure Pharmaceuticals - Sanand</div>
-            <div class="client-item">Mission Pharma Logistics - Gandhidham</div>
-            <div class="client-item">Venu Foods Products - Kuvadava</div>
-            <div class="client-item">Ayushi Pharma - Chattral</div>
-            <div class="client-item">Sumar Biotech - Gozariya</div>
+            <div class="client-item">Mission Pharma Logistics -Gandhidham</div>
+            <div class="client-item">Venu Foods Products -Kuvadava</div>
+            <div class="client-item">Ayushi Pharma -Chattral</div>
+            <div class="client-item">Sumar Biotech -Gozariya</div>
             <div class="client-item">Shree Sopan Enterprise - Rajkot</div>
             <div class="client-item">Rama Gum Industries - Disa</div>
             <div class="client-item">Roselabs Bioscience - Ahmedabad</div>
@@ -372,19 +384,19 @@
             <div class="client-item">Simpolo Ceramic - Morbi</div>
             <div class="client-item">Balaji Wafers - Vadodara</div>
             <div class="client-item">Gokul Snacks Pvt.Ltd - Nr.Kandla Over Bridge Wankaner Rajkot</div>
-            <div class="client-item">Shree Bhawati Flour and Foods Pvt.Ltd.(Gaay Besan) - Ahmedabad</div>
-            <div class="client-item">Arvind Pd Composites Pvt.Ltd. - Kalol Gandhinagar</div>
-            <div class="client-item">Windsor Machines Ltd. - Lodhika Rajkot</div>
+            <div class="client-item">Shree Bhawati Flour and Foods Pvt.Ltd (Gaay Besan) - Ahmedabad</div>
+            <div class="client-item">Arvind Pd Composites Pvt.Ltd- Kalol Gandhinagar</div>
+            <div class="client-item">Windsor Machines Ltd. -Lodhika Rajkot</div>
             <div class="client-item">Goldi Solar - Navsari</div>
             <div class="client-item">Rayzone Solar - Kim Surat</div>
             <div class="client-item">Solex Energy - Kim Surat</div>
-            <div class="client-item">EAGLE ROLAR MILL - JUNAGADH</div>
-            <div class="client-item">VANRAJ BASEN MILL - JUNAGADH</div>
+            <div class="client-item">EAGLE ROLAR MILL -JUNAGADH</div>
+            <div class="client-item">VANRAJ BASEN MILL -JUNAGADH</div>
             <div class="client-item">FUN BLAST - RAJKOT</div>
             <div class="client-item">GUJARAT ALLOYS - SHAPAR (RAJKOT)</div>
-            <div class="client-item">SPUNWEB NONWIVEN - BABANBOR TO WAKANER HIGHWAY RAJKOT</div>
+            <div class="client-item">SPUNWEB NONWIVEN -BABANBOR TO WAKANER HIGHWAY RAJKOT</div>
             <div class="client-item">SSS PHARMA - RAJKOT</div>
-            <div class="client-item">ZALANI PAPPER MART - KASEZ GANDHIDHAM</div>
+            <div class="client-item">ZALANI PAPPER MART -KASEZ GANDHIDHAM</div>
             <div class="client-item">POWERTRAC SOLAR PROJECT LTD. - LIMBDI</div>
             <div class="client-item">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
             <div class="client-item">VIJAY MAMARA - AHMEDABAD</div>
@@ -395,7 +407,7 @@
             <div class="client-item">NELSON SURFACE LLP - MORBI</div>
             <div class="client-item">BIZZ CORPORATION - MORBI</div>
             <div class="client-item">TRAFOFAB PVT.LTD - BHARUDI RAJKOT</div>
-            <div class="client-item">WALPAR WELLNESS PVT.LTD. - KALOL GANDHINAGAR</div>
+            <div class="client-item">WALPAR WELLNESS PVT.LTD-KALOL GANDHINAGAR</div>
         </div>
     </section>
 

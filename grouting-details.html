@@ -10,35 +10,34 @@
             --safety-orange: #ff8800;
             --charcoal: #1a1a1a;
             --white: #ffffff;
-            --light-bg: #f4f4f4;
-            --deep-blue: #1e3a8a;
+            --light-bg: #f8f9fa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: var(--light-bg); color: #333; line-height: 1.6; }
 
-        /* --- Header & Hero --- */
+        /* --- Header --- */
         header {
-            background: var(--charcoal); padding: 20px 8%;
+            background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 4px solid var(--safety-orange);
             position: sticky; top: 0; z-index: 1000;
         }
         .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
-        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
-        .back-btn:hover { background: var(--safety-orange); color: #000; border-color: var(--safety-orange); }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
+        .back-btn:hover { background: var(--safety-orange); color: #000; }
 
+        /* --- Hero --- */
         .hero-sub {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('grouting_hero.jpg'); 
-            background-size: cover; background-position: center;
-            height: 300px; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            height: 250px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
         .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
         .hero-sub span { color: var(--safety-orange); }
 
-        /* --- Content Section --- */
+        /* --- Content --- */
         .detail-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
         
         .description-box { 
@@ -46,58 +45,64 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
             margin-bottom: 50px;
         }
-        .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
-        .description-box p { font-size: 1.1rem; color: #444; text-align: justify; margin-bottom: 15px; }
 
-        /* --- Grid Layouts --- */
-        .section-title { text-align: center; margin-bottom: 40px; margin-top: 40px; }
-        .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title h2::after { content: ''; width: 60px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        .grid-layout { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
+        /* --- Card & Photo Effects --- */
+        .special-card {
+            display: flex; background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 40px; align-items: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Lift Transition */
         }
         
-        .info-card {
-            background: var(--charcoal); color: white; padding: 25px;
-            border-radius: 4px; transition: 0.4s ease; position: relative;
-            overflow: hidden; border-bottom: 4px solid var(--safety-orange);
-            display: flex; flex-direction: column; min-height: 150px;
-        }
-        .info-card:hover { transform: translateY(-8px); background: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .info-card h3 { color: var(--safety-orange); font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; z-index: 2; }
-        .info-card p { font-size: 0.9rem; color: #ccc; z-index: 2; }
-        .info-card::after {
-            content: '🏗'; position: absolute; right: -5px; bottom: -10px;
-            font-size: 4rem; color: rgba(255,136,0,0.07); z-index: 1;
+        .special-card:hover {
+            transform: translateY(-8px); /* Card lifts up */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Deeper shadow */
         }
 
-        /* --- Technique Style --- */
-        .technique-box { background: #fff; padding: 20px; border-left: 5px solid var(--safety-orange); margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .technique-box strong { color: var(--charcoal); font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        .special-img { flex: 1; height: 400px; overflow: hidden; position: relative; }
+        
+        .special-img img { 
+            width: 100%; height: 112%; 
+            object-fit: cover; object-position: top; display: block;
+            transition: transform 0.6s ease; /* Zoom Transition */
+        }
 
-        /* --- CTA Section --- */
+        /* Zoom Effect on Hover */
+        .special-card:hover .special-img img {
+            transform: scale(1.1); 
+        }
+
+        .special-info { flex: 1.2; padding: 40px; }
+        .special-info h3 { color: var(--safety-orange); margin-bottom: 15px; font-size: 1.8rem; }
+
+        .feature-list { list-style: none; margin-top: 15px; }
+        .feature-list li { margin-bottom: 8px; display: flex; align-items: center; font-weight: 600; }
+        .feature-list li::before { content: '✓'; color: var(--safety-orange); margin-right: 10px; font-weight: bold; }
+
+        /* --- Grid --- */
+        .section-title { text-align: center; margin: 50px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .info-card { 
+            background: var(--charcoal); color: white; padding: 30px; 
+            border-radius: 4px; border-bottom: 4px solid var(--safety-orange);
+            transition: 0.3s;
+        }
+        .info-card:hover { background: #222; transform: scale(1.02); }
+        .info-card h3 { color: var(--safety-orange); margin-bottom: 10px; font-size: 1.2rem; }
+
+        /* --- CTA --- */
         .cta-box {
             background: var(--charcoal); color: white; padding: 60px;
             text-align: center; margin-top: 60px; border-radius: 8px;
             border-top: 6px solid var(--safety-orange);
         }
-        .cta-box h2 { margin-bottom: 15px; font-size: 2rem; color: var(--safety-orange); }
         .cta-btn {
             display: inline-block; background: var(--safety-orange); color: #000;
             padding: 16px 35px; text-decoration: none; font-weight: 800;
-            text-transform: uppercase; border-radius: 4px; transition: 0.3s; margin-top: 20px;
+            border-radius: 4px; margin-top: 20px; transition: 0.3s;
         }
-        .cta-btn:hover { background: #e67a00; transform: scale(1.05); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,136,0,0.4); }
 
-        footer { background: #000; color: #666; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .hero-sub h1 { font-size: 2rem; }
-            .detail-container { padding: 40px 5%; }
-        }
+        @media (max-width: 992px) { .special-card { flex-direction: column; } .special-img { width: 100%; height: 300px; } }
     </style>
 </head>
 <body>
@@ -114,74 +119,62 @@
 <div class="detail-container">
     <div class="description-box">
         <h2>Restore Structural Integrity</h2>
-        <p>
-            Grouting is a specialized engineering process used to fill voids, cracks, and honeycombs in concrete structures to restore their structural integrity and prevent water seepage. By injecting high-strength fluids into gaps, we ensure that the structure remains dense, stable, and protected from environmental damage.
-        </p>
-        <p>
-            Whether it is for strengthening a weak foundation, stopping active water leaks, or repairing cracks in industrial slabs, our grouting solutions provide a <strong>permanent and cost-effective fix</strong> for both new and old constructions.
-        </p>
+        <p>Grouting ek advanced civil engineering process hai jisse hum concrete ke andar ke voids, cracks aur honeycombs ko fill karte hain. Hum high-pressure injection ki madad se gaps ko seal karte hain taaki aapka structure mazboot aur leak-proof bana rahe.</p>
+    </div>
+
+    <div class="special-card">
+        <div class="special-img">
+            <img src="grouting_1.jpg" alt="Injection Grouting">
+        </div>
+        <div class="special-info">
+            <h3>1. Pressure Injection</h3>
+            <p>Hum specialized pumps ka use karke micro-cracks mein epoxy ya cementitious grout inject karte hain jo andar tak seal karta hai.</p>
+            <ul class="feature-list">
+                <li>High Strength Repair</li>
+                <li>Leakage Prevention</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="special-card" style="flex-direction: row-reverse;">
+        <div class="special-img">
+            <img src="grouting_2.jpg" alt="Structural Grouting">
+        </div>
+        <div class="special-info">
+            <h3>2. Surface Finishing</h3>
+            <p>Void filling ke baad surface ko properly seal kiya jata hai taaki moisture reinforcement steel tak na pahunche.</p>
+            <ul class="feature-list">
+                <li>No Shrinkage</li>
+                <li>Long Term Stability</li>
+            </ul>
+        </div>
     </div>
 
     <div class="section-title"><h2>Key <span>Benefits</span></h2></div>
-    <div class="grid-layout">
+    <div class="grid-3">
         <div class="info-card">
-            <h3>High Structural Strength</h3>
-            <p>Fills internal gaps to ensure the concrete can carry its intended load safely.</p>
+            <h3>Structural Strength</h3>
+            <p>Concrete ki load carrying capacity ko wapas restore karta hai.</p>
         </div>
         <div class="info-card">
-            <h3>Waterproofing & Sealing</h3>
-            <p>Effectively blocks water flow through cracks, joints, and porous concrete.</p>
+            <h3>Water Tight</h3>
+            <p>Underground basements aur tanks ke liye best leakage solution.</p>
         </div>
         <div class="info-card">
-            <h3>Non-Shrink Properties</h3>
-            <p>Our materials do not shrink, ensuring a tight and permanent bond.</p>
+            <h3>Corrosion Proof</h3>
+            <p>Sariya (Steel) ko jung lagne se bachata hai voids seal karke.</p>
         </div>
-        <div class="info-card">
-            <h3>Chemical Resistance</h3>
-            <p>Protects reinforcement steel from corrosion by sealing out moisture.</p>
-        </div>
-        <div class="info-card">
-            <h3>Precision Application</h3>
-            <p>Low-viscosity fluids can penetrate even the smallest micro-cracks.</p>
-        </div>
-    </div>
-
-    <div class="section-title"><h2>Grouting <span>Techniques</span></h2></div>
-    <div class="technique-box">
-        <strong>Epoxy Injection Grouting</strong>
-        <p>High-strength resin injected into fine cracks to weld the concrete back together.</p>
-    </div>
-    <div class="technique-box">
-        <strong>Cementitious Pressure Grouting</strong>
-        <p>Pumping a cement-based slurry into large voids or soil to stabilize foundations.</p>
-    </div>
-    <div class="technique-box">
-        <strong>PU (Polyurethane) Foam Injection</strong>
-        <p>Rapid-expanding foam used specifically to stop high-pressure water leakages instantly.</p>
-    </div>
-    <div class="technique-box">
-        <strong>Micro-Concrete Grouting</strong>
-        <p>Used for heavy-duty repairs where high flowability and strength are required for thick sections.</p>
-    </div>
-
-    <div class="section-title"><h2>Where <span>It Is Used</span></h2></div>
-    <div class="grid-layout">
-        <div class="info-card"><h3>Basements & Underground Structures</h3></div>
-        <div class="info-card"><h3>Bridges, Dams & Retaining Walls</h3></div>
-        <div class="info-card"><h3>Machine Foundations & Base Plates</h3></div>
-        <div class="info-card"><h3>Water Tanks & Swimming Pools</h3></div>
-        <div class="info-card"><h3>Concrete Columns & Beam Repairs</h3></div>
     </div>
 
     <div class="cta-box">
-        <h2>Stopping Leaks & Strengthening Concrete</h2>
-        <p>Contact Deep Civil Solutions for precise and high-strength grouting applications.</p>
-        <a href="https://wa.me/919824435362" class="cta-btn">Talk to an Expert</a>
+        <h2>Structural Repair Expert Se Baat Karein</h2>
+        <p>Grouting aur crack injection ke liye aaj hi sampark karein.</p>
+        <a href="https://wa.me/919824435362" class="cta-btn">WHATSAPP US NOW</a>
     </div>
 </div>
 
-<footer>
-    &copy; 2024 DEEP CIVIL SOLUTIONS | Injection & Structural Grouting Division
+<footer style="background: #000; color: #666; text-align: center; padding: 20px;">
+    &copy; 2026 DEEP CIVIL SOLUTIONS | Rajkot, Gujarat
 </footer>
 
 </body>

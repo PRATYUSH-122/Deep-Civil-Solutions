@@ -10,35 +10,34 @@
             --safety-orange: #ff8800;
             --charcoal: #1a1a1a;
             --white: #ffffff;
-            --light-bg: #f4f4f4;
-            --deep-blue: #1e3a8a;
+            --light-bg: #f8f9fa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         body { background: var(--light-bg); color: #333; line-height: 1.6; }
 
-        /* --- Header & Hero --- */
+        /* --- Header --- */
         header {
-            background: var(--charcoal); padding: 20px 8%;
+            background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 4px solid var(--safety-orange);
             position: sticky; top: 0; z-index: 1000;
         }
         .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
-        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
-        .back-btn:hover { background: var(--safety-orange); color: #000; border-color: var(--safety-orange); }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
+        .back-btn:hover { background: var(--safety-orange); color: #000; }
 
+        /* --- Hero --- */
         .hero-sub {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('structure_strengthening_hero.jpg'); 
-            background-size: cover; background-position: center;
-            height: 300px; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            height: 250px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
         .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
         .hero-sub span { color: var(--safety-orange); }
 
-        /* --- Content Section --- */
+        /* --- Content --- */
         .detail-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
         
         .description-box { 
@@ -46,58 +45,67 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
             margin-bottom: 50px;
         }
-        .description-box h2 { color: var(--charcoal); margin-bottom: 20px; font-size: 2rem; }
-        .description-box p { font-size: 1.1rem; color: #444; text-align: justify; }
 
-        /* --- Services Grid --- */
-        .services-title { text-align: center; margin-bottom: 40px; }
-        .services-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 10px; }
-        .services-title h2::after { content: ''; width: 60px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
+        /* --- Special Card & Hover Effects --- */
+        .special-card {
+            display: flex; background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 40px; align-items: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
-        .service-card {
-            background: var(--charcoal); color: white; padding: 25px;
-            border-radius: 4px; transition: 0.4s ease; position: relative;
-            overflow: hidden; border-bottom: 4px solid var(--safety-orange);
-            display: flex; flex-direction: column; justify-content: center;
-            min-height: 140px;
-        }
-        .service-card:hover { transform: translateY(-8px); background: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .service-card h3 { 
-            color: var(--safety-orange); font-size: 1.1rem; line-height: 1.4;
-            position: relative; z-index: 2;
-        }
-        .service-card::after {
-            content: '🏗'; position: absolute; right: -5px; bottom: -10px;
-            font-size: 4rem; color: rgba(255,136,0,0.07); z-index: 1;
+        .special-card:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
-        /* --- CTA Section --- */
+        .special-img { flex: 1; height: 400px; overflow: hidden; position: relative; background: #eee; }
+        
+        .special-img img { 
+            width: 100%; height: 115%; 
+            object-fit: cover; object-position: center; display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .special-card:hover .special-img img {
+            transform: scale(1.1); 
+        }
+
+        .special-info { flex: 1.2; padding: 40px; }
+        .special-info h3 { color: var(--safety-orange); margin-bottom: 15px; font-size: 1.8rem; }
+
+        .feature-list { list-style: none; margin-top: 15px; }
+        .feature-list li { margin-bottom: 8px; display: flex; align-items: center; font-weight: 600; transition: 0.3s; }
+        .feature-list li::before { content: '✓'; color: var(--safety-orange); margin-right: 10px; font-weight: bold; }
+        
+        .special-card:hover .feature-list li { transform: translateX(5px); }
+
+        /* --- Grid --- */
+        .section-title { text-align: center; margin: 50px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .info-card { 
+            background: var(--charcoal); color: white; padding: 30px; 
+            border-radius: 4px; border-bottom: 4px solid var(--safety-orange);
+            transition: 0.3s;
+        }
+        .info-card:hover { transform: scale(1.03); background: #222; }
+        .info-card h3 { color: var(--safety-orange); margin-bottom: 10px; font-size: 1.2rem; }
+
+        /* --- CTA --- */
         .cta-box {
             background: var(--charcoal); color: white; padding: 60px;
             text-align: center; margin-top: 60px; border-radius: 8px;
             border-top: 6px solid var(--safety-orange);
         }
-        .cta-box h2 { margin-bottom: 15px; font-size: 2rem; color: var(--safety-orange); }
-        .cta-box p { margin-bottom: 25px; color: #ccc; }
         .cta-btn {
             display: inline-block; background: var(--safety-orange); color: #000;
             padding: 16px 35px; text-decoration: none; font-weight: 800;
-            text-transform: uppercase; border-radius: 4px; transition: 0.3s;
+            border-radius: 4px; margin-top: 20px; transition: 0.3s;
         }
-        .cta-btn:hover { background: #e67a00; transform: scale(1.05); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,136,0,0.4); }
 
-        footer { background: #000; color: #666; text-align: center; padding: 30px; margin-top: 50px; font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .hero-sub h1 { font-size: 2rem; }
-            .detail-container { padding: 40px 5%; }
-            .description-box { padding: 25px; }
+        @media (max-width: 992px) { 
+            .special-card { flex-direction: column; } 
+            .special-img { width: 100%; height: 300px; } 
         }
     </style>
 </head>
@@ -115,45 +123,76 @@
 <div class="detail-container">
     <div class="description-box">
         <h2>Restore & Enhance Stability</h2>
-        <p>
-            Structure strengthening ek aisi prakriya hai jisme structures ko upgrade kiya jata hai taaki load-bearing performance ko behtar banaya ja sake ya unki taqat ko badhaya ja sake taaki wo extra load utha sakein. Structural strengthening ki zaroorat aksar purane building codes, deterioration (dhancha kamzor hona), upyog mein badlav, ya design aur construction ki galtiyon ki wajah se hoti hai.
-        </p>
+        <p>Structure strengthening ek advanced process hai jisme purane dhanchon ki load-bearing capacity ko badhaya jata hai. Deterioration, purane building codes, ya extra load ke liye ye bohot zaroori hai.</p>
     </div>
 
-    <div class="services-title">
-        <h2>Technical <span>Solutions</span></h2>
+    <div class="special-card">
+        <div class="special-img">
+            <img src="Structure Strengthening & Repairs1.jpg" alt="Jacketing work">
+        </div>
+        <div class="special-info">
+            <h3>1. Jacketing & Micro Concrete</h3>
+            <p>Columns aur beams ko extra support dene ke liye hum jacketing aur high-strength micro concrete ka upyog karte hain.</p>
+            <ul class="feature-list">
+                <li>Increased Load Capacity</li>
+                <li>Long-term Durability</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>Jacketing work with micro concrete</h3>
+    <div class="special-card" style="flex-direction: row-reverse;">
+        <div class="special-img">
+            <img src="Structure Strengthening & Repairs2.jpg" alt="Fiber Wrapping">
         </div>
-        <div class="service-card">
-            <h3>Epoxy mortar application</h3>
+        <div class="special-info">
+            <h3>2. Fiber Wrapping (Carbon/Glass)</h3>
+            <p>High-tech Carbon aur Glass fiber wrapping se bina vajan badhaye structure ki taqat kai guna badh jati hai.</p>
+            <ul class="feature-list">
+                <li>Lightweight Solution</li>
+                <li>Corrosion Resistant</li>
+            </ul>
         </div>
-        <div class="service-card">
-            <h3>Epoxy injection grouting</h3>
+    </div>
+
+    <div class="special-card">
+        <div class="special-img">
+            <img src="Structure Strengthening & Repairs3.jpg" alt="Epoxy Injection">
         </div>
-        <div class="service-card">
-            <h3>Glass fiber wrapping</h3>
+        <div class="special-info">
+            <h3>3. Epoxy & Polymer Repairs</h3>
+            <p>Cracks ko seal karne ke liye epoxy injection grouting aur polymer modified mortar ka use kiya jata hai.</p>
+            <ul class="feature-list">
+                <li>Seamless Crack Filling</li>
+                <li>Restored Integrity</li>
+            </ul>
         </div>
-        <div class="service-card">
-            <h3>Carbon fiber wrapping</h3>
+    </div>
+
+    <div class="section-title"><h2>Technical <span>Solutions</span></h2></div>
+    <div class="grid-3">
+        <div class="info-card">
+            <h3>Epoxy Grouting</h3>
+            <p>Deep cracks ko seal karne ke liye pressure injection.</p>
         </div>
-        <div class="service-card">
-            <h3>Polymer modified cement mortar application</h3>
+        <div class="info-card">
+            <h3>Fiber Wrapping</h3>
+            <p>Modern Carbon/Glass fiber strengthening techniques.</p>
+        </div>
+        <div class="info-card">
+            <h3>Micro Concrete</h3>
+            <p>Heavy structural repairs ke liye high-grade materials.</p>
         </div>
     </div>
 
     <div class="cta-box">
         <h2>Is Your Structure At Risk?</h2>
-        <p>Don't wait for structural failure. Get a professional health check and strengthening plan today.</p>
-        <a href="https://wa.me/919824435362" class="cta-btn">TALK TO AN EXPERT</a>
+        <p>Aapke building ke health check aur strengthening plan ke liye aaj hi sampark karein.</p>
+        <a href="https://wa.me/919824435362" class="cta-btn">WHATSAPP US NOW</a>
     </div>
 </div>
 
-<footer>
-    &copy; 2024 DEEP CIVIL SOLUTIONS | Structural Engineering Services
+<footer style="background: #000; color: #666; text-align: center; padding: 20px;">
+    &copy; 2026 DEEP CIVIL SOLUTIONS | Rajkot, Gujarat
 </footer>
 
 </body>
