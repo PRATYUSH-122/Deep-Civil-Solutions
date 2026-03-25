@@ -15,105 +15,124 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        body { background: var(--light-bg); color: #333; line-height: 1.6; }
+        body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
 
         /* --- Header --- */
         header {
-            background: var(--charcoal); padding: 15px 8%;
+            background: var(--charcoal); padding: 15px 5%;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 4px solid var(--safety-orange);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.2rem; border-radius: 4px; }
-        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 5px 15px; border-radius: 4px; transition: 0.3s; }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 6px 12px; text-decoration: none; font-weight: 700; font-size: 1rem; border-radius: 4px; }
+        .back-btn { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; border: 1px solid #444; padding: 5px 10px; border-radius: 4px; transition: 0.3s; }
         .back-btn:hover { background: var(--safety-orange); color: #000; }
 
         /* --- Hero --- */
         .hero-sub {
-            background: linear-gradient(45deg, #1a1a1a, #333);
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('concrete_cutting_hero.jpg'); 
+            background-size: cover; background-position: center;
             height: 250px; display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; border-bottom: 8px solid var(--safety-orange);
         }
-        .hero-sub h1 { font-size: 3rem; letter-spacing: 2px; }
+        .hero-sub h1 { font-size: 2.5rem; letter-spacing: 1px; padding: 0 10px; }
         .hero-sub span { color: var(--safety-orange); }
 
         /* --- Content --- */
-        .detail-container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; }
+        .detail-container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
         
         .description-box { 
-            background: white; padding: 40px; border-radius: 8px; 
+            background: white; padding: 30px; border-radius: 8px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--safety-orange);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
+        .description-box h2 { color: var(--charcoal); margin-bottom: 15px; font-size: 1.8rem; }
 
-        /* --- Special Card & Effects (Waterproofing Style) --- */
+        /* --- SPECIALIZED CARDS WITH EFFECTS --- */
+        .special-service-section { margin-bottom: 40px; }
         .special-card {
             display: flex; background: white; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 40px; align-items: center;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 1px solid #eee; margin-bottom: 30px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         
-        .special-card:hover {
-            transform: translateY(-10px); 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
-        .special-img { flex: 1; height: 400px; overflow: hidden; position: relative; background: #eee; }
-        
+        .special-img { flex: 1; min-height: 350px; overflow: hidden; position: relative; }
         .special-img img { 
-            width: 100%; height: 115%; 
-            object-fit: cover; object-position: top; display: block;
-            transition: transform 0.6s ease;
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
         }
-
-        .special-card:hover .special-img img {
-            transform: scale(1.1); 
-        }
-
-        .special-info { flex: 1.2; padding: 40px; }
-        .special-info h3 { color: var(--safety-orange); margin-bottom: 15px; font-size: 1.8rem; }
-
-        .feature-list { list-style: none; margin-top: 15px; }
-        .feature-list li { margin-bottom: 8px; display: flex; align-items: center; font-weight: 600; transition: 0.3s; }
-        .feature-list li::before { content: '✓'; color: var(--safety-orange); margin-right: 10px; font-weight: bold; }
         
-        .special-card:hover .feature-list li { transform: translateX(5px); }
+        .special-info { flex: 1.2; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .special-info h3 { 
+            color: var(--safety-orange); font-size: 1.8rem; margin-bottom: 15px; 
+            border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;
+            transition: transform 0.4s ease;
+        }
+        .special-info p { transition: opacity 0.4s ease, transform 0.4s ease; }
+        
+        .feature-list { list-style: none; }
+        .feature-list li { 
+            margin-bottom: 10px; display: flex; align-items: center; 
+            font-weight: 600; color: var(--charcoal);
+            transition: transform 0.4s ease;
+        }
+        .feature-list li::before { content: '✔'; color: var(--safety-orange); margin-right: 10px; }
+
+        /* --- HOVER EFFECTS --- */
+        .special-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .special-card:hover .special-img img { transform: scale(1.1) rotate(1deg); filter: blur(2px) grayscale(20%); }
+        .special-card:hover .special-info h3 { transform: translateX(10px); }
+        .special-card:hover .special-info p { transform: translateY(5px); opacity: 0.8; }
+        .special-card:hover .feature-list li { transform: translateX(15px); }
+
+        /* --- MOBILE RESPONSIVE FIX --- */
+        @media (max-width: 992px) {
+            .special-card, .special-card[style*="row-reverse"] { 
+                flex-direction: column !important; 
+            }
+            .special-img { min-height: 250px; width: 100%; }
+            .special-info { padding: 25px; width: 100%; }
+            .special-info h3 { font-size: 1.5rem; }
+            .special-card:hover .special-img img { transform: scale(1.05); filter: none; }
+            .hero-sub h1 { font-size: 2rem; }
+        }
 
         /* --- Grid --- */
-        .section-title { text-align: center; margin: 50px 0; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .section-title { text-align: center; margin: 40px 0; }
+        .section-title h2 { font-size: 2rem; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title h2::after { content: ''; width: 50px; height: 4px; background: var(--safety-orange); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .info-card { 
-            background: var(--charcoal); color: white; padding: 30px; 
+            background: var(--charcoal); color: white; padding: 25px; 
             border-radius: 4px; border-bottom: 4px solid var(--safety-orange);
             transition: 0.3s;
         }
-        .info-card:hover { transform: scale(1.03); background: #222; }
-        .info-card h3 { color: var(--safety-orange); margin-bottom: 10px; font-size: 1.2rem; }
+        .info-card:hover { transform: translateY(-5px); background: #222; }
+        .info-card h3 { color: var(--safety-orange); margin-bottom: 10px; font-size: 1.1rem; }
 
         /* --- CTA --- */
         .cta-box {
-            background: var(--charcoal); color: white; padding: 60px;
-            text-align: center; margin-top: 60px; border-radius: 8px;
+            background: var(--charcoal); color: white; padding: 40px 20px;
+            text-align: center; margin-top: 40px; border-radius: 8px;
             border-top: 6px solid var(--safety-orange);
         }
         .cta-btn {
             display: inline-block; background: var(--safety-orange); color: #000;
-            padding: 16px 35px; text-decoration: none; font-weight: 800;
+            padding: 14px 25px; text-decoration: none; font-weight: 800;
             border-radius: 4px; margin-top: 20px; transition: 0.3s;
+            text-transform: uppercase;
         }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,136,0,0.4); }
+        .cta-btn:hover { transform: translateY(-3px); background: #ffaa44; }
 
-        @media (max-width: 992px) { 
-            .special-card { flex-direction: column; } 
-            .special-img { width: 100%; height: 300px; } 
-        }
+        footer { background: #000; color: #666; text-align: center; padding: 20px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
     <a href="index.html" class="logo-btn">DEEP CIVIL SOLUTIONS</a>
-    <a href="index.html" class="back-btn">← BACK TO HOME</a>
+    <a href="index.html" class="back-btn">← HOME</a>
 </header>
 
 <section class="hero-sub">
@@ -126,47 +145,49 @@
         <p>Diamond Concrete Cutting ek high-precision technique hai jo reinforced concrete aur stone mein surgical accuracy ke sath openings banane ke liye use hoti hai. Ye vibration-free aur dust-free process structural integrity ko maintain rakhta hai.</p>
     </div>
 
-    <div class="special-card">
-        <div class="special-img">
-            <img src="dimond_concreate1.jpg" alt="Wall Sawing">
+    <section class="special-service-section">
+        <div class="special-card">
+            <div class="special-img">
+                <img src="dimond_concreate1.jpg" alt="Wall Sawing">
+            </div>
+            <div class="special-info">
+                <h3>1. Wall Sawing</h3>
+                <p>Vertical surfaces par doors aur windows ki opening banane ke liye track-mounted saw ka use hota hai jo ek dam straight cutting karta hai.</p>
+                <ul class="feature-list">
+                    <li>Perfect Straight Edges</li>
+                    <li>Zero Structural Damage</li>
+                </ul>
+            </div>
         </div>
-        <div class="special-info">
-            <h3>1. Wall Sawing</h3>
-            <p>Vertical surfaces par doors aur windows ki opening banane ke liye track-mounted saw ka use hota hai jo ek dam straight cutting karta hai.</p>
-            <ul class="feature-list">
-                <li>Perfect Straight Edges</li>
-                <li>Zero Structural Damage</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="special-card" style="flex-direction: row-reverse;">
-        <div class="special-img">
-            <img src="dimond_concreate2.jpg" alt="Core Drilling">
+        <div class="special-card" style="flex-direction: row-reverse;">
+            <div class="special-img">
+                <img src="dimond_concreate2.jpg" alt="Core Drilling">
+            </div>
+            <div class="special-info">
+                <h3>2. Core Drilling</h3>
+                <p>Plumbing aur electrical ducts ke liye perfectly circular holes create kiye jate hain bina as-paas ke concrete ko crack kiye.</p>
+                <ul class="feature-list">
+                    <li>Surgical Precision</li>
+                    <li>Vibration-Free Process</li>
+                </ul>
+            </div>
         </div>
-        <div class="special-info">
-            <h3>2. Core Drilling</h3>
-            <p>Plumbing aur electrical ducts ke liye perfectly circular holes create kiye jate hain bina as-paas ke concrete ko crack kiye.</p>
-            <ul class="feature-list">
-                <li>Surgical Precision</li>
-                <li>Vibration-Free Process</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="special-card">
-        <div class="special-img">
-            <img src="dimond_concreate3.jpg" alt="Floor Sawing">
+        <div class="special-card">
+            <div class="special-img">
+                <img src="dimond_concreate3.jpg" alt="Floor Sawing">
+            </div>
+            <div class="special-info">
+                <h3>3. Floor (Slab) Sawing</h3>
+                <p>Roads aur slabs mein trenches banane ke liye industrial diamond blades ka use hota hai jo heavy reinforcement ko bhi smoothly cut karti hain.</p>
+                <ul class="feature-list">
+                    <li>High Speed Efficiency</li>
+                    <li>Clean Joint Cuts</li>
+                </ul>
+            </div>
         </div>
-        <div class="special-info">
-            <h3>3. Floor (Slab) Sawing</h3>
-            <p>Roads aur slabs mein trenches banane ke liye industrial diamond blades ka use hota hai jo heavy reinforcement ko bhi smoothly cut karti hain.</p>
-            <ul class="feature-list">
-                <li>High Speed Efficiency</li>
-                <li>Clean Joint Cuts</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
     <div class="section-title"><h2>Key <span>Benefits</span></h2></div>
     <div class="grid-3">
@@ -186,12 +207,11 @@
 
     <div class="cta-box">
         <h2>Precision Cutting Expert Se Baat Karein</h2>
-        <p>Aapke industrial ya commercial projects ke liye best solution.</p>
         <a href="https://wa.me/919824435362" class="cta-btn">WHATSAPP US NOW</a>
     </div>
 </div>
 
-<footer style="background: #000; color: #666; text-align: center; padding: 20px;">
+<footer>
     &copy; 2026 DEEP CIVIL SOLUTIONS | Rajkot, Gujarat
 </footer>
 
