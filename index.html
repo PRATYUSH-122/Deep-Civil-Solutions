@@ -83,10 +83,12 @@
             background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--safety-orange);
-            flex-wrap: wrap; gap: 10px;
+            gap: 10px;
         }
-        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.3rem; border-radius: 4px; white-space: nowrap; }
-        nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.3rem; border-radius: 4px; white-space: normal; line-height: 1.2; text-align: center; }
+        .home-btn { background: #222; color: #fff; border: 1px solid #444; padding: 8px 15px; text-decoration: none; font-size: 0.8rem; font-weight: bold; border-radius: 4px; display: flex; align-items: center; }
+
+        nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
         nav ul li a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
         .section-padding { padding: 60px 8%; }
@@ -143,7 +145,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; position: relative;
             overflow: hidden;
         }
-        /* --- ADDED CSS FOR SERVICE IMAGES --- */
         .service-img { width: 100%; height: 180px; object-fit: cover; display: block; }
         .service-content { padding: 20px; }
         .service-box:hover { background: #fefefe; transform: translateY(-3px); }
@@ -164,20 +165,25 @@
         
         footer { background: #000; color: #666; text-align: center; padding: 40px; font-size: 0.9rem; }
         
+        /* --- MOBILE FIXES --- */
         @media (max-width: 992px) { 
             .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; } 
-            header { justify-content: center; text-align: center; padding: 15px 5%; }
-            nav ul { margin-top: 10px; }
+            header { padding: 15px 5%; justify-content: space-between; flex-wrap: nowrap; }
+            .logo-btn { font-size: 1rem; padding: 8px 12px; }
+            nav { display: none; } /* Hide regular nav on mobile for cleaner look */
         }
         @media (max-width: 768px) {
             .section-padding { padding: 40px 5%; }
             .brand-flex { flex-direction: column; }
             #bot-popup { width: 90%; right: 5%; bottom: 85px; }
-            .chat-widget { bottom: 20px; right: 20px; }
+            .chat-widget { bottom: 20px; right: 20px; padding: 10px 20px; font-size: 0.8rem; }
             .client-grid { grid-template-columns: repeat(2, 1fr); }
+            .section-title h2 { font-size: 1.8rem; }
         }
         @media (max-width: 480px) {
             .client-grid { grid-template-columns: 1fr; }
+            .logo-btn { font-size: 0.9rem; border-width: 2px; }
+            .home-btn { padding: 6px 10px; font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -286,7 +292,6 @@
         <div class="section-title"><h2>Specialized <span>Services</span></h2></div>
         <div class="services-grid">
             <div class="service-box" onclick="window.open('waterproofing-details.html', '_blank')">
-                <img src="waterproofing-thumb.jpg" alt="Waterproofing" class="service-img">
                 <div class="service-content">
                     <h3>Water Proofing</h3>
                     <p>Leakage protection for all industrial structures.</p>
@@ -294,7 +299,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('epoxy-flooring-details.html', '_blank')">
-                <img src="epoxy-flooring-thumb.jpg" alt="Epoxy Flooring" class="service-img">
                 <div class="service-content">
                     <h3>Epoxy Flooring</h3>
                     <p>Pharma&Food grade high-performance flooring.</p>
@@ -302,7 +306,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('floor-densification-details.html', '_blank')">
-                <img src="floor-densification-thumb.jpg" alt="Floor Densification" class="service-img">
                 <div class="service-content">
                     <h3>Floor densification</h3>
                     <p>Concrete hardening for dust-free warehouses.</p>
@@ -310,7 +313,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('pu-flooring-details.html', '_blank')">
-                <img src="pu-flooring-thumb.jpg" alt="PU Flooring" class="service-img">
                 <div class="service-content">
                     <h3>PU Concrete Flooring</h3>
                     <p>Maximum thermal & chemical resistance solutions.</p>
@@ -318,7 +320,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('grouting-details.html', '_blank')">
-                <img src="grouting-thumb.jpg" alt="Grouting" class="service-img">
                 <div class="service-content">
                     <h3>Grouting</h3>
                     <p>Precision machine foundation & structural grouting.</p>
@@ -326,7 +327,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('concrete-cutting-details.html', '_blank')">
-                <img src="concrete-cutting-thumb.jpg" alt="Concrete Cutting" class="service-img">
                 <div class="service-content">
                     <h3>Diamond Concrete Cutting</h3>
                     <p>Fast & accurate industrial cutting.</p>
@@ -334,7 +334,6 @@
                 </div>
             </div>
             <div class="service-box" onclick="window.open('structure-strengthening-details.html', '_blank')">
-                <img src="structure-strengthening-thumb.jpg" alt="Structure Strengthening" class="service-img">
                 <div class="service-content">
                     <h3>Structure Strengthening</h3>
                     <p>Repair and retrofitting for industrial buildings.</p>
