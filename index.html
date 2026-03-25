@@ -83,9 +83,9 @@
             background: var(--charcoal); padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--safety-orange);
-            gap: 10px;
+            gap: 15px;
         }
-        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.3rem; border-radius: 4px; white-space: normal; line-height: 1.2; text-align: center; }
+        .logo-btn { color: var(--safety-orange); border: 2.5px solid var(--safety-orange); padding: 8px 18px; text-decoration: none; font-weight: 700; font-size: 1.3rem; border-radius: 4px; line-height: 1.2; text-align: center; }
         .home-btn { background: #222; color: #fff; border: 1px solid #444; padding: 8px 15px; text-decoration: none; font-size: 0.8rem; font-weight: bold; border-radius: 4px; display: flex; align-items: center; }
 
         nav ul { display: flex; list-style: none; gap: 15px; flex-wrap: wrap; justify-content: flex-end; }
@@ -167,11 +167,12 @@
         
         /* --- MOBILE FIXES --- */
         @media (max-width: 992px) { 
-            .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; } 
-            header { padding: 15px 5%; justify-content: space-between; flex-wrap: nowrap; }
-            .logo-btn { font-size: 1rem; padding: 8px 12px; }
-            nav { display: none; } /* Hide regular nav on mobile for cleaner look */
+            header { padding: 15px 5%; justify-content: center; flex-direction: column; gap: 10px; }
+            .logo-btn { font-size: 1.1rem; width: 100%; }
+            nav { display: none; }
+            .about-grid, .work-method-container, .raw-materials-section { grid-template-columns: 1fr; gap: 30px; } 
         }
+
         @media (max-width: 768px) {
             .section-padding { padding: 40px 5%; }
             .brand-flex { flex-direction: column; }
@@ -179,11 +180,14 @@
             .chat-widget { bottom: 20px; right: 20px; padding: 10px 20px; font-size: 0.8rem; }
             .client-grid { grid-template-columns: repeat(2, 1fr); }
             .section-title h2 { font-size: 1.8rem; }
+            .mat-text h2 { font-size: 2rem; }
         }
+
         @media (max-width: 480px) {
             .client-grid { grid-template-columns: 1fr; }
-            .logo-btn { font-size: 0.9rem; border-width: 2px; }
-            .home-btn { padding: 6px 10px; font-size: 0.7rem; }
+            .logo-btn { font-size: 1rem; }
+            .experience-tag { font-size: 0.9rem; padding: 8px 15px; }
+            .work-card img { height: 200px; }
         }
     </style>
 </head>
@@ -421,7 +425,7 @@
             <div class="client-item">SSS PHARMA - RAJKOT</div>
             <div class="client-item">ZALANI PAPPER MART -KASEZ GANDHIDHAM</div>
             <div class="client-item">POWERTRAC SOLAR PROJECT LTD. - LIMBDI</div>
-            <div class="client-item">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
+            <div class="client-item =">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
             <div class="client-item">VIJAY MAMARA - AHMEDABAD</div>
             <div class="client-item">COSMIC PV SOLAR - KIM SURAT</div>
             <div class="client-item">AVANCE RESECRCH PVT.LTD - RAJKOT</div>
