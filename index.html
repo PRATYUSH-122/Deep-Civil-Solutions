@@ -133,14 +133,40 @@
         .contact-info p { margin-bottom: 20px; font-weight: 500; }
         .email-link { color: var(--charcoal); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--safety-orange); }
 
-        /* --- WHATSAPP LIGHTING EFFECT --- */
-        .chat-widget { 
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000; 
+        /* --- MULTI-WHATSAPP WIDGET --- */
+        .whatsapp-wrapper {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            display: flex; flex-direction: column; align-items: flex-end;
+        }
+        .whatsapp-menu {
+            display: none; background: white; border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); margin-bottom: 10px;
+            overflow: hidden; width: 220px; border: 1px solid #ddd;
+        }
+        .whatsapp-menu.active { display: block; animation: fadeInUp 0.3s ease; }
+        .whatsapp-menu header {
+            background: var(--whatsapp-green); color: white; padding: 10px;
+            text-align: center; border-radius: 0; border: none; font-size: 0.9rem;
+        }
+        .whatsapp-item {
+            padding: 12px 15px; display: flex; align-items: center;
+            text-decoration: none; color: #333; transition: 0.2s; border-bottom: 1px solid #eee;
+        }
+        .whatsapp-item:hover { background: #f9f9f9; color: var(--whatsapp-green); }
+        .whatsapp-item span { font-size: 0.85rem; font-weight: 600; }
+
+        .chat-trigger { 
             background: var(--whatsapp-green); color: white; padding: 12px 25px; 
             border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            animation: pulse-light 2s infinite; /* High-Dim Lighting */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer;
+            animation: pulse-light 2s infinite; border: none; outline: none;
         }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @keyframes pulse-light {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); filter: brightness(1); }
             50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); filter: brightness(1.2); }
@@ -153,6 +179,11 @@
             text-transform: uppercase; letter-spacing: 1px;
         }
         .submit-btn:hover { background: #e67a00; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,136,0,0.3); }
+
+        .custom-select {
+            width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd;
+            border-radius: 4px; background: #fff; font-weight: 600; color: #555;
+        }
 
     </style>
 </head>
@@ -303,7 +334,7 @@
             <div class="client-item">ZALANI PAPPER MART -KASEZ GANDHIDHAM</div>
             <div class="client-item">POWERTRAC SOLAR PROJECT LTD. - LIMBDI</div>
             <div class="client-item">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
-            <div class="client-item)VIJAY MAMARA - AHMEDABAD</div>
+            <div class="client-item">VIJAY MAMARA - AHMEDABAD</div>
             <div class="client-item">COSMIC PV SOLAR - KIM SURAT</div>
             <div class="client-item">AVANCE RESECRCH PVT.LTD - RAJKOT</div>
             <div class="client-item">OM ISH SOLAR - SURAT</div>
@@ -331,6 +362,12 @@
             <div style="background:white; padding:40px; border-top:8px solid var(--safety-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 <form id="enquiryForm">
                     <input type="text" id="fullName" placeholder="Full Name" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:4px;" required>
+                    
+                    <select id="whatsappNumber" class="custom-select">
+                        <option value="919824435362">Contact Person 1 (98244 35362)</option>
+                        <option value="919924129182">Contact Person 2 (99241 29182)</option>
+                    </select>
+
                     <textarea id="requirement" placeholder="Your Requirement (Service Type, Area, etc.)" style="width:100%; padding:15px; height:110px; border:1px solid #ddd; margin-bottom:15px; border-radius:4px;" required></textarea>
                     <button type="button" onclick="sendWhatsappEnquiry()" class="submit-btn">Send Enquiry via WhatsApp</button>
                 </form>
@@ -338,15 +375,47 @@
         </div>
     </section>
 
-    <a href="https://wa.me/919824435362" class="chat-widget" target="_blank">💬 WhatsApp Contact</a>
+    <div class="whatsapp-wrapper">
+        <div class="whatsapp-menu" id="waMenu">
+            <header>Chat with us on WhatsApp</header>
+            <a href="https://wa.me/919824435362" class="whatsapp-item" target="_blank">
+                <span>👤 Office Support (Primary)</span>
+            </a>
+            <a href="https://wa.me/919924129182" class="whatsapp-item" target="_blank">
+                <span>👤 Technical Support</span>
+            </a>
+        </div>
+        <button class="chat-trigger" onclick="toggleWAMenu()">WhatsApp Contact</button>
+    </div>
 
     <script>
+        // Toggle the WhatsApp Multi-Menu
+        function toggleWAMenu() {
+            const menu = document.getElementById('waMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.chat-trigger')) {
+                const menu = document.getElementById('waMenu');
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                }
+            }
+        }
+
         function sendWhatsappEnquiry() {
             const name = document.getElementById('fullName').value;
             const req = document.getElementById('requirement').value;
-            if(name === "" || req === "") { alert("Please fill details"); return; }
+            const phone = document.getElementById('whatsappNumber').value;
+
+            if(name === "" || req === "") { 
+                alert("Please fill details"); 
+                return; 
+            }
             const message = "Hello Deep Civil Solutions,%0a*New Website Enquiry*%0aName: " + name + "%0aRequirement: " + req;
-            window.open("https://wa.me/919824435362?text=" + message, '_blank');
+            window.open("https://wa.me/" + phone + "?text=" + message, '_blank');
         }
     </script>
 </body>
