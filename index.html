@@ -93,9 +93,19 @@
             background: #fff; border-left: 5px solid var(--safety-orange); 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer;
             display: flex; flex-direction: column; overflow: hidden;
+            justify-content: space-between;
         }
         .service-box:hover { transform: translateY(-5px); border-left-width: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .service-content { padding: 20px; position: relative; z-index: 2; background: #fff; }
+        
+        /* New Detail Button Style */
+        .detail-btn {
+            background: #f1f1f1; color: var(--charcoal); padding: 10px;
+            text-align: center; font-weight: 700; font-size: 0.85rem;
+            text-transform: uppercase; border-top: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .service-box:hover .detail-btn { background: var(--safety-orange); color: white; }
 
         /* --- CLIENTS LIGHT EFFECT --- */
         .clients-section { background: var(--charcoal); color: white; padding: 80px 8%; }
@@ -210,24 +220,31 @@
         <div class="services-grid">
             <div class="service-box" onclick="window.open('waterproofing-details.html', '_blank')">
                 <div class="service-content"><h3>Water Proofing</h3><p>Leakage protection for all industrial structures.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('epoxy-flooring-details.html', '_blank')">
                 <div class="service-content"><h3>Epoxy Flooring</h3><p>Pharma&Food grade high-performance flooring.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('floor-densification-details.html', '_blank')">
                 <div class="service-content"><h3>Floor densification</h3><p>Concrete hardening for dust-free warehouses.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('pu-flooring-details.html', '_blank')">
                 <div class="service-content"><h3>PU Concrete Flooring</h3><p>Maximum thermal & chemical resistance solutions.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('grouting-details.html', '_blank')">
                 <div class="service-content"><h3>Grouting</h3><p>Precision machine foundation & structural grouting.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('concrete-cutting-details.html', '_blank')">
                 <div class="service-content"><h3>Diamond Concrete Cutting</h3><p>Fast & accurate industrial cutting.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
             <div class="service-box" onclick="window.open('structure-strengthening-details.html', '_blank')">
                 <div class="service-content"><h3>Structure Strengthening</h3><p>Repair and retrofitting for industrial buildings.</p></div>
+                <div class="detail-btn">Click for Details</div>
             </div>
         </div>
     </section>
@@ -286,7 +303,7 @@
             <div class="client-item">ZALANI PAPPER MART -KASEZ GANDHIDHAM</div>
             <div class="client-item">POWERTRAC SOLAR PROJECT LTD. - LIMBDI</div>
             <div class="client-item">RAJDEEP SOLAR ENERGY PVT.LTD - GANDHIDHAM</div>
-            <div class="client-item">VIJAY MAMARA - AHMEDABAD</div>
+            <div class="client-item)VIJAY MAMARA - AHMEDABAD</div>
             <div class="client-item">COSMIC PV SOLAR - KIM SURAT</div>
             <div class="client-item">AVANCE RESECRCH PVT.LTD - RAJKOT</div>
             <div class="client-item">OM ISH SOLAR - SURAT</div>
